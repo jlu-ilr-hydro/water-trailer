@@ -1,0 +1,16 @@
+Sample robot
+==================
+
+Robot in the fridge. Axes of the robot are controlled by nanotec controls
+
+Testing
+--------
+
+Start the NanoPro Software on the Laptop and connect the robot serial cable with the serial port of the laptop.
+
+## Maintance
+???
+
+## Port
+/dev/ttyUSB3 -> I7520A -> RS485
+				

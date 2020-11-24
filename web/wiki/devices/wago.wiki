@@ -1,0 +1,62 @@
+WAGO
+========
+
+Our central I/O PLC is a Modbus based WAGO 750-851?. All I/O features of the sampler are used here. 
+The program running on the WAG is programmed using Codesys and can be accessed from the laptop.
+
+Basic functions:
+----------------
+
+Smoothes the scale signal and converts it to a calibrated ml amount. Runs flush, fill and empty programs
+using the selected input valve and runs the appropriate pumps. If you start Codesys on the laptop you
+can connect Codesys with the PLC by pressing Alt+F8 and in the visualization you can see what is happening.
+
+
+Scale calibration:
+------------------
+
+Until now, the scale can only be calibrated using the Codesys visualization - this will change in the future.
+However, the process will stay the same:
+
+
+### Calibrate offset only (every couple of days)
+
+1. Empty the reservoir. This can be done with the right Hardware-Button
+1. Press Calibrate until the green led starts to flicker. 
+1. Done!
+
+### Calibrate offset and gain (once a week in the beginning, if the values reproduce once a month)
+
+1. Remove the inlet cap from the reservoir
+1. Empty the reservoir. This can be done with the right Hardware-Button
+1. Enter as target volume 0ml
+1. Press Calibrate until the green led starts to flicker. 
+1. Pour 500ml water into the reservoir
+1. Enter as target volume 500ml
+1. Press Calibrate again until the value is not changing 
+1. Empty the reservoir
+1. Put the inlet cap on the reservoir again
+1. Enter as target volume 0ml
+1. Press Calibrate until the green led starts to flicker. 
+1. Done!
+
+### Calibration values that are *roughly* ok:
+
+ - smooth_factor 100
+ - calib_offset 4639.52685546875
+ - calib_gain 0.15307874977588654
+
+calibration on 23.08.2017
+
+- smooth_factor 100
+- calib_offset 690.5
+- calib_gain 0.151
+
+
+Rainfill
+--------
+
+100% = 4l approx.
+
+				
+				

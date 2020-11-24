@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>trailer.editor.yaml</title>
+    <meta name="description" content="">
+    <meta name="author" content="kraft-p">
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" href="/html/trailer.css">
+    <link rel="stylesheet" href="/libs/CodeMirror/codemirror.css">
+    <script src="/libs/jquery.min.js"></script>
+    <script src="/libs/CodeMirror/codemirror.js"></script>
+    <script src="/libs/CodeMirror/mode/yaml/yaml.js" type="text/javascript"></script>
+    <script src="/libs/keithamus-jwerty-3c8594b/jwerty.js"></script>
+
+    <style>
+        body {
+            background: white;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="errorbox" style="width: 100%; height: auto;"></div>
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("area42"), {
+            lineNumbers: true,
+            lineWrapping: true
+        });
+
+        $.getJSON('/yamleditor/availableyamlfiles', function (data) {
+            $.each(data, function (k, v) {
+                $("#yamlfiles").append("<option key='" + v + "'>" + v + "</option>");
+            });
+
+            $.getJSON('/yamleditor/getnowpath', function (data) {
+
+            $("#yamlfiles option").each(function(k,v){
+                if($(v).attr("key") == data.path)
+                {
+                    $(v).attr('selected','selected');
+                    loadFileIntoEditor(data.path);
+                }
+            })
+        });
+
+
+        });
+
+
+
+
+
+        $("#yamlfiles").change(function () {
+            window.location.href="/yamleditor/f/"+$(this).val();
+
+        });
+
+        function loadFileIntoEditor(filename) {
+            console.log(filename);
+            $.ajax({
+                url: '/yamleditor/getcontent/',
+                dataType: 'json',
+                type: 'POST',
+                data: {
+                    path: filename
+                },
+                success: function (result) {
+                    editor.setValue(result.content);
+                },
+                error: function (jqXHR, status, errorThrown) {
+                    $("#errorbox").html(jqXHR.responseText);
+                }
+            });
+        }
+
+        function saveContentOnDisk() {
+            var all_text = editor.getValue();
+            console.log(all_text);
+            $.ajax({
+                url: '/yamleditor/savecontent/',
+                dataType: 'json',
+                type: 'POST',
+                data: {
+                    path: $("#yamlfiles :selected").val(),
+                    content: all_text
+                },
+                success: function (result) {
+                        if(result.success)
+                        {
+                            alert("Your content has been successfully saved");
+                        }
+                        else{
+                            alert("You have a typo in the syntax. Please check your changes! \n"+result.message);
+                            $("#errorbox").html();
+                        }
+                },
+                error: function (jqXHR, status, errorThrown) {
+                    $("#errorbox").html(jqXHR.responseText);
+                }
+            });
+        }
+
+        jwerty.key('ctrl+S', function () {
+            saveContentOnDisk();
+        });
+
+        $("#save").click(function () {
+            saveContentOnDisk();
+        })
+    });
+
+
+</script>
+<div class="title normal big" id="menu">
+    <a class="button" href="/" title="home">&#x2302;</a>
+    <a id="save" class="button">Speichern</a>
+    <span class="question">Choose your yaml file</span>
+    <select id="yamlfiles"></select>
+
+    <a href="/loggerplot" class="button" title="plot logger">&#x2600;</a>
+    <a href="/map" class="button" title="map">&#x2316;</a>
+    <a href="/wiki" class="button" title="show wiki">?</a>
+
+
+</div>
+
+
+<textarea id="area42"></textarea>
+
+</body>
+</html>

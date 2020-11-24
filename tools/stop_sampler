@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Shut down the sampler..."
+curl --data '' "http://localhost:10080/shutdown_server" && sleep 5
+show

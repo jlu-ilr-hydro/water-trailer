@@ -1,0 +1,10 @@
+MAJA GSM-modem
+==========
+
+Connections:
+------------
+The MAJA must be connected with the industrial PC with USB and the serial port (COM1=/dev/ttyS0). The USB cable is for the modem communication, the serial cable to read the extended functionality like the GPS, fuel sensor and alarm states.
+
+Bus
+----
+preferences/maja.bus.yaml

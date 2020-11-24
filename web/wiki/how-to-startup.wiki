@@ -1,0 +1,48 @@
+how-to-startup
+==========
+This how to describes how the trailer is setup on a new location
+
+
+Check Energy
+-------------
+ 1. Check fuel level
+ 2. Check generator, is it on autostart?
+ 3. Batteries full?
+ 4. TBS on?
+
+Start Picarro
+-------------
+See startup sequence at wiki:devices/picarro. Starting the picarro takes approx. 1h.
+
+Make the mobile internet connection
+---------------------
+Just start, you will need to enter the trailer password twice:
+
+    gsm start
+
+The script is defined in trailer/tools. Then kill the firewall to allow access from the other VPN-clients (eg. your computer):
+
+    sudo iptables -F
+
+Start the Servers
+-------------
+Connect from the picarro screen to the IPC using Putty.
+
+The trailer servers should run in the background. We are using the relative simple solution screen. 
+There is a helper to run those servers in a screen, called run.
+
+ 1. go to the trailer directory `cd trailer`
+ 2. Start all 3 servers (wiki, logger, sampler) with `run_all`
+ 6. Open an internet browser in the trailer at the address http://10.42.0.1:10080
+
+If you see strange error messages from python in the logbook, switch to the sampler terminal to 
+investigate:   
+
+    show sampler
+
+You can use the `show` command also for the other servers to the terminal (logger, wiki). You leave it with
+ctrl+a+d
+
+
+
+ 

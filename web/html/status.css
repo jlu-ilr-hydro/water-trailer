@@ -1,0 +1,92 @@
+.hidden{
+	display: none;
+}
+.progress {
+	position: relative;
+	/*border: 1px solid black;*/
+}
+.progress .progress-label {
+	 position: absolute;   
+}
+.progress .progress-bar {
+	 background-color: #00AA00;
+	 width: 0%;
+	 height: 20px;
+}
+.log {
+	width: 100%;
+	color: white;
+}
+.level1 {
+	background-color: #FF0000;
+	font-weight: bold;
+}
+.level2 {
+	background-color: #FF8800;
+}
+.level3 {
+	background-color: #555555;
+}
+.level4 {
+	background-color: #00AA00;
+}
+.level5 {
+	background-color: #333333;
+	font-size: 75%;
+}
+#scheduleEditWindow {
+	display: none;
+	/*border: 3px solid #888;*/
+	background: black;
+	padding: 5px;
+	
+}
+#devices .key {
+	cursor: pointer;
+}
+#devices .key:hover {
+	cursor: pointer;
+	background: #000;
+}
+#devices .togglechildren {
+	cursor: pointer;
+}
+#devices .togglechildren:hover {
+	background: #555;
+}
+.reading:after {
+	content: "...";
+}
+.devcap:hover {
+	cursor: pointer;
+	background: #555;
+}
+#frontvalues {
+	font-size: 1.3em;
+}
+.devcap_triangle{
+	display: inline-block;
+}
+.devcap_triangle_closed{
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+}
+.devcap_triangle_opened{
+	transform: rotate(-32deg);
+	-webkit-transform: rotate(-32deg);
+}
+.devcap_triangle_togglechild_opened{
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+
+
+.device_activate{
+	float: right;
+	font-size: 12px;
+	padding: 2px;
+	margin: -29px 0 0 0;
+	position: relative;
+	right: 1px;
+}
+

@@ -1,0 +1,10 @@
+events: []
+time_per_source: 600
+pointer: -1
+currentsource: null
+urgentsources: []
+schedule:
+- 16
+- 14
+starttime: 2017-11-22 13:17:49.364771
+name: test benni

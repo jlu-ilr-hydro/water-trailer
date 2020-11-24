@@ -1,0 +1,126 @@
+# This is the main configuration file of the sampler
+# Any parameters should be defined here.
+
+
+# Minimal time gap between device read times
+device_read_rate: 0.25
+
+# Maximum time allowed to read devicestatus
+device_timeout:
+  seconds: 10
+  times: 10
+
+measure: # Parameters of the measure task
+  timeout: 3600
+  # base sample volume, 50ml are added for the CoWS
+  # and for the sample robot 2 x flushvol + bottlesize
+  samplevol: 25
+  throughflow:
+    flushtime: 30
+  disable: # reasons not to measure
+    too_cold: logger.vaisala.T_air < 0
+    water_leak: valvesystem.is_waterwarning
+  fill_timeout: 1 # s/ml
+  empty_timeout: 1 # s/ml
+  empty_source:
+    # Sources (indicated by the valve id) that should be emptied after use
+    # This flushes valve number 5 while rainfill1 > 0% but not longer than 5min
+    10:
+      value: rainfill1
+      until: 5
+      timeout: 300
+
+
+  clean_filter: # Settings to clean the filter
+    # How often the cleaning should be repeated
+    repeat: 3
+    # Valve with water used for cleaning
+    in_valve: 12
+    # Valve to release water
+    out_valve: 12
+    # How much water should be used per repetion
+    volume: 100
+    # Minimal time gap between cleanings in seconds
+    timegap: 21600 # 6h
+
+devices:
+  # List of devices, if you want to disable some devices, comment it out
+  valvesystem:
+    module: trailer.devices.wago_valvesystem
+    host: wago
+    port: 502
+    # Execute the method / comethod after creation
+    on_setup_complete: reset
+    on_create: start_ysi
+    on_shutdown: reset
+    # Calibrate scale offset on empty timeout
+    auto_calibrate: true
+    debug: false
+
+  ysi600r:
+    module: trailer.devices.ysi600r
+    # serial port of device
+    port: /dev/ttyUSB1
+    # Measure time to make averages of result
+    integrationtime: 20
+    # Report error if no result was sampled for time in seconds
+    timeout: 10
+
+  logger:
+    module: trailer.devices.logger
+    debug: false
+    host: localhost
+    port: 51213
+    active: true
+    refreshrate: 1.0 # Time in seconds between reads from the sampler
+    # File to save to. If "db" write to the database
+    outfile: db
+    readraster: 300 # Time in seconds between device readouts
+    busses:
+      # List the bus files in preferences/*.bus.yaml to use without
+      # the .bus.yaml suffix
+      - colorcontrol-short
+      # - maja
+      - sdi12
+      # - addupi-2017-07-04
+
+    send_back: # Device values to send from the sampler to the logger (with valuetype)
+      sampler.rainfill1: valvesystem.rainfill1
+      sampler.temp_trailer: valvesystem.temp_trailer
+      sampler.temp_rack: valvesystem.temp_rack
+
+
+  picarro:
+    module: trailer.devices.picarro_telnet
+    host: picarro
+    port: 51020
+    refreshrate: 5.0
+    active: false
+
+  cwspicarro:
+    module: trailer.devices.cwsclient
+    host: picarro
+    port: 51211
+    refreshrate: 2.0
+    on_setup_complete: killsample
+    active: true
+
+  tribox:
+    module: trailer.devices.tribox
+    host: tribox
+    port: 502
+    ProPSunit: 3
+    LSAunit: 20
+    active: true
+    refreshrate: 10
+#  samplerobot:
+#    module: trailer.devices.robotaio
+#    port: /dev/trailerRobot
+#    bottlesize: 50
+#    flushvol: 100
+#    debug: 1
+
+# mirror_db:
+#   url: http://10.8.0.1:10081/update/receive
+#   # wait time for update in seconds
+#  timegap: 1800

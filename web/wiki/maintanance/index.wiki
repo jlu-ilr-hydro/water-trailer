@@ -1,0 +1,31 @@
+Check and act accordingly:
+==================
+
+Hardware
+---------
+
+ 1. Fuel level?
+ 4. Rain collector - is it clean?
+ 2. 5 µm Filter, whole and clean? Else replace from small blue box. If new filters are needed order at: http://www.pieper-filter.de Model: PA00504700
+ 1. Reservoir, clean enough? 
+ 3. Deionized water canister next to fridge, still water available?
+ 4. Clean ProPS
+ 5. Clean throughflow of YSI600R
+
+Isotopes
+--------
+ 1. Enough standard water (both standards)?
+ 3. Dririte column in CoWS
+ 5. Get isotopic standards for lab wiki:maintanance/isotopestandards_to_lab
+
+Filter
+------
+-  Filter was changed on 23.08.2017 
+-  type: 50 µm, 31% (5 µm filter makes pump not to work properly, too much pressure on it!)
+-  Outer filters were changed for str#176 and str#226 on 08.08.2017
+
+ProPS sensor
+------------
+window lens of the ProPS sensor were cleaned on 29.8.2017
+ 
+

@@ -1,0 +1,411 @@
+body, html {
+	margin: 0px;
+	padding: 0px;
+	background-color: #333;
+}
+div, h1, h2 {
+	font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
+	font-size: 16px;
+}
+#error {
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+.all {
+	width: 100%;
+	height: 1000px;
+	padding: 0px;
+	margin: 0px;
+}
+#header{
+	width: 100%;
+    background: grey;
+    height: 47px;
+}
+
+/*.leftpane {
+	position: absolute;
+	left: 0px;
+	width: 25%;
+	height: 100%;
+}
+.centerpane {
+	position: absolute;
+	left: 25%;
+	width: 50%;
+	height: 100%;
+}
+.rightpane {
+	position: absolute;
+	left: 75%;
+	width: 25%;
+	height: 100%;
+}*/
+
+
+/* Depending on Screen we write our  style! */
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 1000px) {
+
+	#plotParentDiv{
+		position: absolute;
+		top:9em; bottom:5px; right: 5px; left: 5px;
+	}
+
+	.leftpane {
+		float: left;
+		margin: 5px;
+		/* padding: 15px; */
+		width: 95%;
+		height: 440px;
+		border: 1px solid black;
+	}
+	.biggerpane{
+		height: auto;
+	}
+
+	#clock {
+		font-size: 8vw;
+		color: white;
+		text-align: right;
+		position: fixed;
+		bottom: 0px;
+		right: 0px;
+		background-color: black;
+		z-index: 1000;
+	}
+
+	#valuetype{
+		display: none;
+		width: 374px;
+		height: auto;
+		padding: 7px;
+		background: #000;
+		color: #eee9e9;
+		font-size: 17px;
+		position: absolute;
+		border: 1px solid white;
+		z-index: 12;
+		top: 51px
+	}
+	#valuetype_head{
+		border: 2px solid antiquewhite;
+		padding: 2px;
+		width: auto;
+		display: block;
+		margin-top: -2px;
+		cursor: pointer;
+	}
+
+	#plot{
+		top: 21px;
+	}
+
+}
+
+
+@media only screen
+and (min-width : 1000px) {
+
+	#plotParentDiv{
+		position: absolute; top:5em; bottom:5px; right: 5px; left: 5px;
+
+	}
+
+	.biggerpane.leftpane {
+		width: 50%;
+	}
+
+	.leftpane {
+		float: left;
+		margin: 5px;
+		width: 23%;
+		height: 81%;
+	}
+
+	#clock {
+		font-size: 48px;
+		color: white;
+		text-align: right;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		background-color: black;
+		z-index: 1000;
+	}
+
+	#valuetype{
+		display: none;
+		width: 374px;
+		height: auto;
+		padding: 7px;
+		background: #000;
+		color: #eee9e9;
+		font-size: 17px;
+		left: 40%;
+		position: absolute;
+		border: 1px solid white;
+		top: -31px;
+		z-index: 12;
+	}
+	#valuetype_head{
+		border: 2px solid antiquewhite;
+		padding: 2px;
+		width: auto;
+		display: block;
+		float: right;
+		margin-top: -2px;
+		cursor: pointer;
+	}
+
+}
+
+h1 {
+	background-color: #AAA;
+	color: #333;
+	font-size: 150%;
+	margin: 0px;
+	padding: 5px 0px 10px 10px;
+	font-weight: bold;
+}
+h2 {
+	background-color: #333;
+	color: #AAA;
+	font-size: 120%;
+	margin: 0px;
+	padding: 5px 0px 10px 10px;
+	font-style: italic;
+}
+h3 {
+	background-color: #333;
+	color: #AAA;
+	font-size: 100%;
+	font-weight: bold;
+	margin: 0px;
+	padding: 5px 0px 10px 10px;
+	font-style: italic;
+}
+
+.list {
+	padding: 5px 0px 5px 20px;
+	list-style-type: none;
+	display: list-item;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.small {
+	font-size: 75%;
+}
+.big {
+	font-size: 125%;
+}
+.normal {
+	background-color: black;
+	color: #FFF;
+}
+.error {
+	background-color: #FF0000 !important;
+	white-space:pre-wrap;
+	color: white !important;
+}
+.warning {
+	background-color: #FF8800 !important;
+	color: white;
+}
+.stop {
+	background-color: #FF0000 !important;
+	color: white;
+}
+.question{
+	background-color: #f7ffd8;
+	color: #000000;
+}
+.active {
+	background-color: #00AA00 !important;
+	color: white;
+	/*font-size: 150%;*/
+}
+.hidden {
+	display: none;
+}
+.plotcontainer {
+	height: 20em;
+	width: 100%;
+	padding: 5px;
+	background-color: #333;
+	color: #FFF;
+}
+.plot {
+	/*
+	position: relative;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 2em;
+	*/
+	height: 100%;
+	width: 100%;
+}
+.plot-legend {
+	height: 2em;
+	width: 100%;
+}
+
+a {
+	color: #88AAFF;
+}
+.devicestatus {
+	width: 21em;
+	background-color: #333;
+	color: #FFF;
+	/*border: 1px #888 solid;*/
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+}
+.child {
+	font-size: 90%;
+	padding-left: 1em;
+	/*border: 1px solid black;*/
+}
+.child .open {
+	border-color: black;
+	background-color: #AAA;
+	color: black;
+	border-radius: 6px;
+	cursor: pointer;
+}
+span.key {
+	display: inline-block;
+	background-color: #333;
+	color: #FFF;
+	font-weight: bold;
+	width: 50%;
+	
+}
+span.value {
+	display: inline-block;
+	background-color: black;
+	text-align:right;
+	color: white;
+	width: 50%;
+	border-bottom: 1px solid #555;
+}
+div.detail {
+	display: none;
+	position: absolute;
+	width: 250px;
+	z-index: 100;
+	border: 1px solid #BBB;
+}
+
+ .tooltip {outline:none; } 
+ .tooltip strong {line-height:30px;} 
+ .tooltip:hover {text-decoration:none;} 
+ .tooltip span { 
+ 		z-index:10;
+ 		display:none; 
+ 		padding:5px 5px; 
+ 		margin-top:-5px; 
+ 		margin-left:5px; 
+	 	border-radius:4px; 
+	 	box-shadow: 5px 5px 8px #888;
+	 	color: black;
+ 	} 
+ .tooltip span a {
+ 		color:#3D578C;
+ }
+ .tooltip:hover span{ 
+ 		display:inline; 
+ 		position:absolute; 
+ 		/*color:#111;*/ 
+ 		border:1px solid #DCA; 
+ 		background:#fffAF0;
+ 		z-index: 100;
+ 	} 
+	a.button {
+		border: 2px solid #0AA;
+		border-radius: 20px;
+		min-height: 20px;
+		min-width: 20px;
+		display: inline-block;
+		vertical-align: bottom;
+		text-align: center;
+		background-color: #044;
+		color: white;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	a.button:hover {
+		background-color: #5BB;
+	}
+	a.button:active {
+		background-color: #8FF;
+		color: black;
+	}
+	.fright {
+		float: right;
+		margin-top: 13px;
+		margin-right: 12px;
+	}
+
+
+
+
+	.valuetypesMenu{
+		display: block;
+		margin-top: 2px;
+	}
+	.valuetypes_menu_expand{
+		border: solid 2px;
+		cursor: pointer;
+		display: inline-block;
+		margin-right: 2px;
+		border-radius: 20px;
+		min-height: 20px;
+		min-width: 20px;
+		vertical-align: bottom;
+		text-align: center;
+		background-color: #044;
+		color: white;
+		text-decoration: none;
+
+	}
+	.valuetypesSubBox{
+		display: none;
+	}
+	.valuetypesSubItem{
+		display: none;
+		margin-left: 30px;
+		cursor: pointer;
+	}
+
+	.valuetypesSubItem.valuetypesSubItemBlock{
+		display: block;
+	}
+
+	.valuetypesHeaderItem {
+		display: block;
+		margin-left: 15px;
+
+	}
+
+	.valTyp_sel_val{
+		background: #044;
+		width: 84%;
+	}
+	.SettingsPanels{
+		float: left;
+	}
+
+	#values_items_menu{
+	width: 100%;
+    background: green;
+    height: 20px;
+    position: relative;
+    top: 0;
+}

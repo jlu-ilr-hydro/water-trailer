@@ -1,0 +1,62 @@
+module: trailer.logger.bus.maja
+port: /dev/ttyS0
+sensors:
+- name: maja.gps
+  command: gps
+  values:
+  - datasetid: null
+    name: lat
+    scalefunction: (x // 100) + (x % 100)/60
+    unit: "\xB0N"
+  - datasetid: null
+    name: lon
+    scalefunction: (x // 100) + (x % 100)/60
+    unit: "\xB0E"
+  - datasetid: null
+    name: alt
+    scalefunction: null
+    unit: m
+- name: maja.i
+  command: inputs
+  values:
+  - datasetid: null
+    name: fire
+    scalefunction: bool(x & 2**0)
+    unit: ''
+  - datasetid: null
+    name: motion
+    scalefunction: bool(x & 2**1)
+    unit: ''
+  - datasetid: null
+    name: emergency_off
+    scalefunction: bool(x & 2**2)
+    unit: ''
+  - datasetid: null
+    name: alarm
+    scalefunction: bool(x & 2**7)
+    unit: ''
+- name: maja.fuel
+  command: vign
+  values:
+  - datasetid: null
+    name: l
+    scalefunction: 'x / 9000 * 90 # converts mV to liters'
+    unit: l
+  - datasetid: null
+    name: V
+    scalefunction: 'x / 1000 # converts mV to V'
+    unit: V
+- name: maja.bat
+  command: vpwr
+  values:
+  - datasetid: null
+    name: voltage
+    scalefunction: 'x / 1000 # converts mV to liters'
+    unit: V
+- name: maja.board
+  command: brdtmp
+  values:
+  - datasetid: null
+    name: temp
+    unit: "\xB0C"
+

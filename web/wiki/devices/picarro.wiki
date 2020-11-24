@@ -1,0 +1,38 @@
+Picarro CRDS
+==========
+
+Remote login
+------------
+Don't do it, the coordinator will stop
+
+ - Username: `picarro`
+ - PW: `Extreme_Science!`
+
+Start up (up to 1h)
+----------
+
+ 1. Start vacuum pump **first** (silver pump below the valve board, power switch on the backside). 
+ 2. Switch on the Picarro mains (Switch on backside, hard to reach)
+ 3. Press the Picarro power button
+ 4. Wait until the Picarro starts to measure (approx. 30min). The main screen of the Picarro shows then δ18O and δD values.
+ 5. Switch on CoWS mains (backside indicated by a white label on the top)
+ 6. Start the CoWS with the push button
+ 7. On the Picarro-Computer, start Coordinator Scripts from the Windows start menu, or the desktop
+ 8. Select CWS-JLU
+ 9. Check the settings, are they what you need (see wiki:devices/cwspicarro)
+ 10. It takes 15 min to warmup the CoWS, but you can already proceed with the next steps. Just don't start sampling
+
+Shutdown (up to 20min)
+--------
+ 1. From a terminal (eg. PuTTY) of the industrial PC execute `test/cwspicarro.py stop`
+ 2. On the Picarro-Desktop, switch to the Coordinator, it should now have as a last message `FSM thread finished`. If not, wait a minute, 
+if it is still not appearing, proceed anyway
+ 3. Close the coordinator window, wait for the progressbar to finish or at least one minute
+ 4. Switch off the CoWS (switch on the backside indicated by a white label
+ 5. On the Picarro desktop go to the main Picarro Window (with the δD and δ18O graphs) and click shutdown. Select shutdown for shipping
+ 6. Wait for the Picarro CRDS to go off, this takes up to 15min.
+ 7. Switch off the main switch of the Picarro on the backside near the power cable.
+ 8. Switch off the vacuum pump (switch on backside also).
+ 9. If CoWS and CRDS will be transported sepeartly:
+       - close the valves of the standard bags
+       - disconnect the tubes at the CoWS (using the Swagelock connections)

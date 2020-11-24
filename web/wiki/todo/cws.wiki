@@ -1,0 +1,21 @@
+cws
+==========
+
+Philipp
+-------
+ - ??[test pending] Make ilrcws/cwsconnector.py aware of unicode sample names
+ - ??[test pending] Changing of time parameters from client
+ - ??[test pending] Need to update cws-software and restart to handle measurement dropouts
+ - 2017-03-14 done: Resolve double state old water / idle, added in nextport
+ - 2017-03-14 done:Organize processcallbacks for cws - include sample name in caption
+ - 2017-03-14 done:CWS reports a time_to_warmup state. If 0, warmup is fine
+ - Write calibrator
+ - 2017-3-6 done: Final experiment with cws integration 
+ - 2017-3-6 done: Check & try standard source
+ - 2017-3-10 done: Fix UTC/local time problem with time of standard meas
+ - Order <s>VEEN</s> and Karoo water (http://www.fineliquids.com/)
+ 
+Amir
+------
+ - Amir: Observe H2O ppm with outlet position
+ - 2017-03-20 done: Take Standard samples, give them to Heike

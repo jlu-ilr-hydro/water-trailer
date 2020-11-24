@@ -1,0 +1,7 @@
+#!/bin/sh
+cd ~/trailer
+run tools/wiki.py
+run tools/logger.py
+run tools/sampler.py
+run tools/photo-loop
+# sshfs gh1961@10.8.0.1:trailer ~/trailer-pasig

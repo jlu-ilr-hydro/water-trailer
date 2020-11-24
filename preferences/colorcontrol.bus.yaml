@@ -1,0 +1,617 @@
+host: colorcontrol
+module: trailer.logger.bus.modbus
+port: 502
+sensors:
+- length: 35
+  mdbunit: 246
+  name: cc.power
+  startaddress: 3
+  values:
+  - datasetid: null
+    description: Input voltage phase 1
+    id: 3
+    name: Ac_ActiveIn_L1_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Input voltage phase 2
+    id: 4
+    name: Ac_ActiveIn_L2_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Input voltage phase 3
+    id: 5
+    name: Ac_ActiveIn_L3_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Input current phase 1
+    id: 6
+    name: Ac_ActiveIn_L1_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Input current phase 2
+    id: 7
+    name: Ac_ActiveIn_L2_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Input current phase 3
+    id: 8
+    name: Ac_ActiveIn_L3_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Input frequency 1
+    id: 9
+    name: Ac_ActiveIn_L1_F
+    scalefunction: x / 100
+    unit: Hz
+  - datasetid: null
+    description: Input frequency 2
+    id: 10
+    name: Ac_ActiveIn_L2_F
+    scalefunction: x / 100
+    unit: Hz
+  - datasetid: null
+    description: Input frequency 3
+    id: 11
+    name: Ac_ActiveIn_L3_F
+    scalefunction: x / 100
+    unit: Hz
+  - datasetid: null
+    description: Input power 1
+    id: 12
+    name: Ac_ActiveIn_L1_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Input power 2
+    id: 13
+    name: Ac_ActiveIn_L2_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Input power 3
+    id: 14
+    name: Ac_ActiveIn_L3_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Output voltage phase 1
+    id: 15
+    name: Ac_Out_L1_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Output voltage phase 2
+    id: 16
+    name: Ac_Out_L2_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Output voltage phase 3
+    id: 17
+    name: Ac_Out_L3_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Output current phase 1
+    id: 18
+    name: Ac_Out_L1_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Output current phase 2
+    id: 19
+    name: Ac_Out_L2_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Output current phase 3
+    id: 20
+    name: Ac_Out_L3_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Output frequency
+    id: 21
+    name: Ac_Out_L1_F
+    scalefunction: x / 100
+    unit: Hz
+  - datasetid: null
+    description: Active input current limit
+    id: 22
+    name: Ac_ActiveIn_CurrentLimit
+    scalefunction: x / 10
+    unit: A
+  - datasetid: null
+    description: Output power 1
+    id: 23
+    name: Ac_Out_L1_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Output power 2
+    id: 24
+    name: Ac_Out_L2_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Output power 3
+    id: 25
+    name: Ac_Out_L3_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Battery voltage
+    id: 26
+    name: Dc_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Battery current
+    id: 27
+    name: Dc_I
+    scalefunction: x / 10
+    unit: A DC
+  - datasetid: null
+    description: Phase count
+    id: 28
+    name: Ac_NumberOfPhases
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Active input
+    id: 29
+    name: Ac_ActiveIn_ActiveInput
+    scalefunction: x / 1
+    unit: input
+  - datasetid: null
+    description: VE_Bus state of charge
+    id: 30
+    name: Soc
+    scalefunction: x / 10
+    unit: '%'
+  - datasetid: null
+    description: VE_Bus state
+    id: 31
+    name: State
+    scalefunction: '{0:''Off'',1:''Low Power Mode'',2:''Fault'',3:''Bulk'',4:''Absorption'',5:''Float'',6:''Storage'',7:''Equalize'',8:''Passthru'',9:''Inverting'',10:''Power
+      assist'',11:''Power supply mode'',252:''Bulk protection''}[x]'
+    unit: null
+  - datasetid: null
+    description: VE_Bus Error code
+    id: 32
+    name: VebusError
+    scalefunction: '{0:''No error'',1:''VE_Bus Error 1: Device is switched off because
+      one of the other phases in the system has switched off'',2:''VE_Bus Error 2:
+      New and old types MK2 are mixed in the system'',3:''VE_Bus Error 3: Not all,
+      or more than, the expected devices were found in the system'',4:''VE_Bus Error
+      4: No other device whatsoever detected'',5:''VE_Bus Error 5: Overvoltage on
+      AC-out'',6:''VE_Bus Error 6: Error in DDC Program'',10:''VE_Bus Error 10: System
+      time synchronisation problem occurred'',14:''VE_Bus Error 14: Device cannot
+      transmit data'',16:''VE_Bus Error 16: Dongle missing'',17:''VE_Bus Error 17:
+      One of the devices assumed master status because the original master failed'',18:''VE_Bus
+      Error 18: Overvoltage has occurred'',22:''VE_Bus Error 22: This device cannot
+      function as slave'',24:''VE_Bus Error 24: Switch-over system protection initiated'',25:''VE_Bus
+      Error 25: Firmware incompatibility_ The firmware of one of the connected device
+      is not sufficiently up to date to operate in conjunction with this device'',26:''VE_Bus
+      Error 26: Internal error''}[x]'
+    unit: null
+  - datasetid: null
+    description: Switch Position
+    id: 33
+    name: Mode
+    scalefunction: '{1:''Charger Only'',2:''Inverter Only'',3:''On'',4:''Off''}[x]'
+    unit: null
+  - datasetid: null
+    description: Temperature
+    id: 34
+    name: Alarms_HighTemperature
+    scalefunction: '{0:''Ok'',1:''Warning'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Low battery
+    id: 35
+    name: Alarms_LowBattery
+    scalefunction: '{0:''Ok'',1:''Warning'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Overload
+    id: 36
+    name: Alarms_Overload
+    scalefunction: '{0:''Ok'',1:''Warning'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Hub4 zero current setpoint
+    id: 37
+    name: Hub4_ExternalAcCurrentSetpoint
+    scalefunction: x / 100
+    unit: null
+- length: 43
+  mdbunit: 245
+  name: cc.bat
+  startaddress: 259
+  values:
+  - datasetid: null
+    description: Battery voltage
+    id: 259
+    name: Dc_0_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Starter battery voltage
+    id: 260
+    name: Dc_1_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Current
+    id: 261
+    name: Dc_0_I
+    scalefunction: x / 10
+    unit: A DC
+  - datasetid: null
+    description: Battery temperature
+    id: 262
+    name: DC_0_T
+    scalefunction: x / 10
+    unit: Degrees celsius
+  - datasetid: null
+    description: Mid-point voltage of the battery bank
+    id: 263
+    name: Dc_0_MidVoltage
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Mid-point deviation of the battery bank
+    id: 264
+    name: Dc_0_MidVoltageDeviation
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Consumed Amphours
+    id: 265
+    name: ConsumedAmphours
+    scalefunction: x / -10
+    unit: Ah
+  - datasetid: null
+    description: State of charge
+    id: 266
+    name: Soc
+    scalefunction: x / 10
+    unit: '%'
+  - datasetid: null
+    description: Time to go
+    id: 301
+    name: TimeToGo
+    scalefunction: x / 0.01
+    unit: seconds
+  - datasetid: null
+    description: BMV Alarm status
+    id: 267
+    name: Alarms_Alarm
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV Low voltage Alarm
+    id: 268
+    name: Alarms_LowVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV High voltage Alarm
+    id: 269
+    name: Alarms_HighVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV Low starter-voltage Alarm
+    id: 270
+    name: Alarms_LowStarterVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV High starter-voltage Alarm
+    id: 271
+    name: Alarms_HighStarterVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV Low State-of-charge Alarm
+    id: 272
+    name: Alarms_LowSoc
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV Low temperature Alarm
+    id: 273
+    name: Alarms_LowTemperature
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV High temperature Alarm
+    id: 274
+    name: Alarms_HighTemperature
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV Mid-voltage Alarm
+    id: 275
+    name: Alarms_MidVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Low fused-voltage Alarm
+    id: 276
+    name: Alarms_LowFusedVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: High fused-voltage Alarm
+    id: 277
+    name: Alarms_HighFusedVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Fuse blown Alarm
+    id: 278
+    name: Alarms_FuseBlown
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: High internal-temperature Alarm
+    id: 279
+    name: Alarms_HighInternalTemperature
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: BMV Relay status
+    id: 280
+    name: Relay_0_State
+    scalefunction: '{0:''Open'',1:''Closed''}[x]'
+    unit: null
+  - datasetid: null
+    description: Deepest discharge
+    id: 281
+    name: History_DeepestDischarge
+    scalefunction: x / -10
+    unit: Ah
+  - datasetid: null
+    description: Last discharge
+    id: 282
+    name: History_LastDischarge
+    scalefunction: x / -10
+    unit: Ah
+  - datasetid: null
+    description: Average discharge
+    id: 283
+    name: History_AverageDischarge
+    scalefunction: x / -10
+    unit: Ah
+  - datasetid: null
+    description: Charge cycles
+    id: 284
+    name: History_ChargeCycles
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Full discharges
+    id: 285
+    name: History_FullDischarges
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Total Ah drawn
+    id: 286
+    name: History_TotalAhDrawn
+    scalefunction: x / -10
+    unit: Ah
+  - datasetid: null
+    description: Minimum voltage
+    id: 287
+    name: History_MinimumVoltage
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Maximum voltage
+    id: 288
+    name: History_MaximumVoltage
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Time since last full charge
+    id: 289
+    name: History_TimeSinceLastFullCharge
+    scalefunction: x / 0.01
+    unit: seconds
+  - datasetid: null
+    description: Automatic syncs
+    id: 290
+    name: History_AutomaticSyncs
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Low voltage alarms
+    id: 291
+    name: History_LowVoltageAlarms
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: High voltage alarms
+    id: 292
+    name: History_HighVoltageAlarms
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Low starter voltage alarms
+    id: 293
+    name: History_LowStarterVoltageAlarms
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: High starter voltage alarms
+    id: 294
+    name: History_HighStarterVoltageAlarms
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Minimum starter voltage
+    id: 295
+    name: History_MinimumStarterVoltage
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Maximum starter voltage
+    id: 296
+    name: History_MaximumStarterVoltage
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Low fused-voltage alarms
+    id: 297
+    name: History_LowFusedVoltageAlarms
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: High fused-voltage alarms
+    id: 298
+    name: History_HighFusedVoltageAlarms
+    scalefunction: x / 1
+    unit: count
+  - datasetid: null
+    description: Minimum fused voltage
+    id: 299
+    name: History_MinimumFusedVoltage
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Maximum fused voltage
+    id: 300
+    name: History_MaximumFusedVoltage
+    scalefunction: x / 100
+    unit: V DC
+- length: 18
+  mdbunit: 247
+  name: cc.pv
+  startaddress: 771
+  values:
+  - datasetid: null
+    description: Battery voltage
+    id: 771
+    name: Dc_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: Battery current
+    id: 772
+    name: Dc_I
+    scalefunction: x / 10
+    unit: A DC
+  - datasetid: null
+    description: Battery temperature
+    id: 773
+    name: Dc_T
+    scalefunction: x / 10
+    unit: Degrees celsius
+  - datasetid: null
+    description: Charger on/off
+    id: 774
+    name: Mode
+    scalefunction: '{0:''Off'',1:''On'',2:''Error'',3:''Unavailable, Unknown''}[x]'
+    unit: null
+  - datasetid: null
+    description: Charge state
+    id: 775
+    name: State
+    scalefunction: '{0:''Off'',1:''Low Power Mode'',2:''Fault'',3:''Bulk'',4:''Absorption'',5:''Float'',6:''Storage'',7:''Equalize'',8:''Passthru'',9:''Inverting'',10:''Power
+      assist'',11:''Power supply mode'',252:''Bulk protection''}[x]'
+    unit: null
+  - datasetid: null
+    description: PV voltage
+    id: 776
+    name: Pv_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: PV current
+    id: 777
+    name: Pv_I
+    scalefunction: x / 10
+    unit: A DC
+  - datasetid: null
+    description: Equalization pending
+    id: 778
+    name: Equalization_Pending
+    scalefunction: x / 1
+    unit: 0=No;1=Yes;2=Error;3=Unavailable, Unknown
+  - datasetid: null
+    description: Equalization time remaining
+    id: 779
+    name: Equalization_TimeRemaining
+    scalefunction: x / 10
+    unit: seconds
+  - datasetid: null
+    description: Relay on the charger
+    id: 780
+    name: Relay_0_State
+    scalefunction: '{0:''Open'',1:''Closed''}[x]'
+    unit: null
+  - datasetid: null
+    description: Alarm condition
+    id: 781
+    name: Alarms_Alarm
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Battery voltage is too low
+    id: 782
+    name: Alarms_LowVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Battery voltage is too high
+    id: 783
+    name: Alarms_HighVoltage
+    scalefunction: '{0:''No alarm'',2:''Alarm''}[x]'
+    unit: null
+  - datasetid: null
+    description: Yield today
+    id: 784
+    name: Yield_Today
+    scalefunction: x / 0.01
+    unit: kWh
+  - datasetid: null
+    description: Maximum charge power today
+    id: 785
+    name: MaxChargePower_Today
+    scalefunction: x / 1
+    unit: W
+  - datasetid: null
+    description: Yield yesterday
+    id: 786
+    name: Yield_Yesterday
+    scalefunction: x / 0.01
+    unit: kWh
+  - datasetid: null
+    description: Maximum charge power yesterday
+    id: 787
+    name: MaxChargePower_Yesterday
+    scalefunction: x / 1
+    unit: W
+  - datasetid: null
+    description: Error code
+    id: 788
+    name: ErrorCode
+    scalefunction: '{0:''No error'',1:''Battery temperature too high'',2:''Battery
+      voltage too high'',3:''Battery temperature sensor miswired (+)'',4:''Battery
+      temperature sensor miswired (-)'',5:''Battery temperature sensor disconnected'',6:''Battery
+      voltage sense miswired (+)'',7:''Battery voltage sense miswired (-)'',8:''Battery
+      voltage sense disconnected'',9:''Battery voltage wire losses too high'',17:''Charger
+      temperature too high'',18:''Charger over-current'',19:''Charger current polarity
+      reversed'',20:''Bulk time limit reached'',22:''Charger temperature sensor miswired'',23:''Charger
+      temperature sensor disconnected'',34:''Input current too high''}[x]'
+    unit: null

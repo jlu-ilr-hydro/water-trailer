@@ -1,0 +1,29 @@
+Bring the trailer out
+=================
+
+
+David
+------
+ - David: Add smssend option to serial interface, eg. `!sms +491781976098 +4999999999 cc.bat.soc<20%\r\n`
+
+Philipp
+--------
+
+Reconnect Win7 on Laptop:
+
+Eingabeaufforderung als Administrator(!) starten.
+
+KMS-Server festlegen:
+    slmgr -skms kms.hrz.uni-giessen.de
+    (Meldung, dass OK)
+    
+serial eingeben:
+
+    slmgr /ipk FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4
+    (Meldung, dass serial OK)
+
+Win 7 beim KMS der Uni Gießen aktivieren:
+
+    slmgr -ato
+    (Meldung, dass OK) 
+

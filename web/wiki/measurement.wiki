@@ -1,0 +1,40 @@
+Measurement cycle
+=========== 
+
+
+A new sample is handled with the following steps:
+
+### flush
+Flush tubes with water from the active wiki:source for the time given 
+in the properties of the source (flushtime). The flush water goes through water path A 
+with wiki:devices/ysi600r and wiki:devices/tribox. Control of valves and pumps is done by wiki:devices/alphaValves
+If a sample will be taken, move wiki:devices/samplerobot to the fridge.
+
+### empty last / wait
+If the reservoir is not empty, wait until the wiki:devices/cws isotope sampler can switch ports and empty the reservoir
+
+### fill 1
+Fill reservoir with water from the wiki:source
+
+### empty 1
+Empty reservoir the first time. If a sample is taken into the wiki:fridge, 
+the water goes through the fridge waste port.
+
+### fill 2
+Fill reservoir again
+
+### start cws
+Start isotope measurement with continuous water sample (CoWS) (that is switch to Port 4)
+
+### throughflow measurements
+Pump water through water path A, start wiki:devices/ysi600r using output 1 of wiki:devices/alphaIO, to flush
+YSI and ProPS (wiki:devices/tribox). Flush time can be changed at ??.   
+
+Start averaged measurement of YSI probe and do ProPS measurement
+
+### store sample in fridge
+If the sample is stored in the wiki:fridge, move wiki:devices/samplerobot to next empty bottle and release water
+from the reservoir into the bottle
+
+
+				

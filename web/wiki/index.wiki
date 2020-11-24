@@ -1,0 +1,13 @@
+WATER.sampler
+===================
+
+The sampler takes water samples, does in situ wiki:measurement of the water quality using its wiki:devices
+and can store the water sample in the [fridge](/rack) in up to 280 bottles.
+
+image:video0.jpg
+
+
+
+
+
+			

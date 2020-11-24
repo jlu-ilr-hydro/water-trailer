@@ -1,0 +1,25 @@
+# Content in devices/cooler
+setup the cooler configuration:
+
+1. connect USB cables (i.e. LR1 and LL2) from the cooler to the laptop located in the trailer.
+2. run RTC.exe
+3. connect to the usb0-0001 in the interface option (see Fig 1).
+4. password is 'admin'
+5. go to the configuration tab and set the 'Bus setting' to the 'Stand-Alone betrieb' (See Fig. 2).
+6. all the required information (e.g. inside, outside temperature) is shown on the right side of the interface. Check if the condition is 'ok' (See Fig. 3).
+7. check the 'Function' and 'Status' LEDs on the Ritall coolers.
+8. for the Function-LED, there are three color modes: 
+    - 'Off' means device is in standby mode 
+    - 'Green' means device is cooling
+    - 'Red' means device has error message
+    - 'Orange' means device is heating
+9. for the Status-LED, there are three color modes:
+    - 'Off' means device is off
+    - 'Green' means device condition is ok
+    - 'Orange' means device is warning that temperature is above or below alarm value. To solve this, go to the configuration tab and set 'cooling function' and 'heat function' to the proper value based on the outside temperature.
+    - 'Red' means either sensor, fan, thermoelectric module is defective or internal temperature is too high. To solve the problem temporary, go to the configuration tab and set the 'Bus setting' to either 'Master' or 'slave-1'. 
+
+image:rtc_fig1.jpg  image:rtc_fig2.jpg  image:rtc_fig3.jpg
+
+                         Fig. 1                                                      Fig. 2                                                     Fig. 3
+

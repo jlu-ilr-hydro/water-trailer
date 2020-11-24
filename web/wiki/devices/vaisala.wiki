@@ -1,0 +1,65 @@
+/HOME VAISALA Weather Transmitter WXT520
+========================================
+wiki:home
+
+Weather Transmitter WXT520 is a small and lightweight transmitter that offers six weather parameters in one compact package:
+1.Wind speed
+2.Wind direction
+3.Precipitation
+4.Atmospheric pressure
+5.Temperature
+6.Relative humidity
+
+### Wind Measurement Principle
+The wind sensor has an array of three equally spaced ultrasonic transducers on a horizontal plane. 
+Wind speed and wind directions are determined by measuring the time it takes the ultrasound to travel from each transducer to the other two.
+
+The wind speed is calculated from the measured transit times using the following formula:
+Vw = 0.5 * L * (1/tf-1/tr)
+where:
+Vw = Wind speed
+L = Distance between the two transducers
+tf = Transit time in forward direction
+tr = Transit time in reverse direction
+
+The wind direction indicates the direction that the wind comes from. North is represented as 0°, east as 90°, south as 180°, and west as 270°.
+
+Average Value: The average values of wind speed and direction are calculated as a scalar average of all samples over the selected averaging time(1 ... 3600 s) with a selectable updating interval.
+Max & Min Values: The maximum and minimum values of wind speed and direction represent the corresponding extremes during the selected averaging time.
+
+### Precipitation Measurement Principle
+The measured parameters are accumulated rainfall, rain current and peak intensity, and the duration of a rain event.
+Precipitation current intensity internally updated every 10 seconds represents the intensity during the one minute period before requesting precipitation message.
+
+### PTU Measurement Principle
+The PTU module contains separate sensors for pressure, temperature and humidity measurement.
+
+### Device Configuration
+The device is configured so that the defined parameters are requested in 300 seconds (5 minutes) update intervals.
+The Concurrent (aC) and Automatic Composite (aR0) measurement commands are configured in the transmitter to obtain defined parameter value.
+
+Concurrent Measurement Command:
+This command is used when there are several devices on the same bus and simultanous measurements are needed for the devices, or if more than nine measurement parameters are requested from a single device.
+The measured data is not sent automatically and it should be requested with seperated send data command (aD).
+
+Automatic Composite Data Command:
+When automatic composite data command is selected, the transmitter sends composite data message at defined update intervals(300 seconds). In this case, the measured data is sent automatically without seperated send data command.
+
+Defined Parameter Order:
+The parameter order in messages is as follows:
+Dm + Sm + Ta + Ua + Pa + Rc + Rd + Ri
+
+Where:
+Dm: Wind direction average (deg)
+Sm: Wind speed average (m/s)
+Ta: Air temperature(°C)
+Ua: Air humidity (%RH)
+Pa: Air pressure (hPa)
+Rc: Rain accumulation (mm)
+Rd: Rain duration (s)
+Ri: Rin intensity (mm/h)
+
+Note: The precipitation sensor is set to Autosend mode so that the transmitter sends a precipitation message 10 seconds after the first recognition of precipitation. Rain duration Rd increases in 10 second steps. Precipitation has ended when Ri=0.
+      The obtained data will be averaged over 300 s intervals dring precipitation period.
+	  
+

@@ -1,0 +1,46 @@
+module: trailer.logger.bus.sdi12
+port: /dev/ttyUSB0
+sensors:
+- channel: '2'
+  name: vaisala
+  values:
+  - datasetid: null
+    id: 0
+    name: wind_dir
+    scalefunction: null
+    unit: °
+  - datasetid: null
+    id: 1
+    name: wind_speed
+    scalefunction: null
+    unit: m/s
+  - datasetid: null
+    id: 2
+    name: T_air
+    scalefunction: null
+    unit: °C
+  - datasetid: null
+    id: 3
+    name: rH_air
+    scalefunction: null
+    unit: "%"
+  - datasetid: null
+    id: 4
+    name: pressure_air
+    scalefunction: null
+    unit: hPa
+  - datasetid: null
+    id: 5
+    name: rain_acc
+    scalefunction: null
+    unit: mm
+  - datasetid: null
+    id: 6
+    name: rain_duration
+    scalefunction: null
+    unit: s
+  - datasetid: null
+    id: 7
+    name: rain_intensity
+    scalefunction: null
+    unit: mm/h

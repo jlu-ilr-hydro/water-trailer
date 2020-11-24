@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trailer.preferences</title>
+    <link href="/html/trailer.css" rel="stylesheet" type="text/css"/>
+    <script href="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js"></script>
+    <style>
+        #editor {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="fright big">
+        <a href="/loggerplot" class="button" title="plot logger">&#x2600;</a>
+        <a href="/map" class="button" title="map">&#x2316;</a>
+        <a href="/wiki" class="button" title="show wiki">?</a>
+        <a class="button" href="/" title="home">&#x2302;</a>
+    </div>
+    <div id="editor"></div>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.getSession().setMode("ace/mode/yaml");
+    </script>
+</body>
+</html>

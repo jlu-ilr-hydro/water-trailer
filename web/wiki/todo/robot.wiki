@@ -1,0 +1,6 @@
+Sample robot
+==========
+ - Philipp: 2017-03-06 done: Prepare Software to run only on level 2
+ - Philipp: 2017-03-06 done: Move M3 to level 2 and leave it there
+ - Philipp: 2017-03-10 done: Order shielded cables
+ - Josias: Shielding RS485 & Motor cables

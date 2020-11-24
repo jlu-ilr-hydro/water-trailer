@@ -1,0 +1,36 @@
+software
+==========
+
+Philipp
+--------
+ - 2017-04-04 done: Make fill timeout configurable
+ - 2017-04-04 done: Add last_log function to db.log (needed for the next tasks)
+ - 2017-04-05 done: Include update_send in cycle (by time of last_log update), but omit unfinished samples
+ - 2017-04-04 done: clear filter not at every std1 measurement (as from config file)
+ - define events to send email / write sms
+ - Send logger data to schwingbach  db
+ - Send sampler data to schwingbach db
+ - When to take robot sample, add interval field to valuetype, add has_similar(sample) method to source
+     
+
+
+Benni
+--------
+ - done: make tree structure in plot.html for different value families
+ - done: Activate / Deactivate toggle button for devices
+ - done: Style the Enable remove of event condition in [/schedule/edit](/schedule/edit)
+ - done: Multiple entries for one source in [/schedule/edit](/schedule/edit)
+ - done: Leave device details open on refresh
+ - done: Close source value window on click and keep it open
+ - done: JS Code Refractoring: Use event listener of static parent elements
+ - done: Aktive flagg (true / false)
+
+ - Philipp 2017-04-10 done: Make picture using fswebacam, simple, yet working solution
+ - Philipp: done: Refresh loop is broken when click on the play button of the schedule
+ - done: Second version see: [/yamleditor](/yamleditor) Create a (nice) editor of the settings.yaml file
+ - done: Parse Yaml File
+ - Make a template and compare 
+ - done: edit yaml file by path
+ - done: Make every Page more responsive
+
+

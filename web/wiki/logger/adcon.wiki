@@ -1,0 +1,9 @@
+adcon
+==========
+
+Start the configuration interface: Navigate to 10.42.0.100
+
+ - Username: admin
+ - Password: admin
+
+Write the configuration into addupi.bus.yaml. You can create a blank  configuration with test/addupi.py 22 46 70, if that are the id's of the RTU's

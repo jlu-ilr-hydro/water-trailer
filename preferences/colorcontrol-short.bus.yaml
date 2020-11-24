@@ -1,0 +1,139 @@
+host: colorcontrol
+module: trailer.logger.bus.modbus
+port: 502
+sensors:
+- length: 35
+  mdbunit: 246
+  name: cc.power
+  startaddress: 3
+  values:
+  - datasetid: null
+    description: Input voltage phase 1
+    id: 3
+    name: Ac_ActiveIn_L1_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Input current phase 1
+    id: 6
+    name: Ac_ActiveIn_L1_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Input frequency 1
+    id: 9
+    name: Ac_ActiveIn_L1_F
+    scalefunction: x / 100
+    unit: Hz
+  - datasetid: null
+    description: Input power 1
+    id: 12
+    name: Ac_ActiveIn_L1_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Output voltage phase 1
+    id: 15
+    name: Ac_Out_L1_V
+    scalefunction: x / 10
+    unit: V AC
+  - datasetid: null
+    description: Output current phase 1
+    id: 18
+    name: Ac_Out_L1_I
+    scalefunction: x / 10
+    unit: A AC
+  - datasetid: null
+    description: Output power 1
+    id: 23
+    name: Ac_Out_L1_P
+    scalefunction: x / 0.1
+    unit: VA or Watts
+  - datasetid: null
+    description: Battery voltage
+    id: 26
+    name: Dc_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: VE_Bus state of charge
+    id: 30
+    name: Soc
+    scalefunction: x / 10
+    unit: '%'
+  - datasetid: null
+    description: VE_Bus state {0:''Off'',1:''Low Power Mode'',2:''Fault'',3:''Bulk'',4:''Absorption'',5:''Float'',6:''Storage'',7:''Equalize'',8:''Passthru'',9:''Inverting'',10:''Powerassist'',11:''Power supply mode'',252:''Bulk protection''}
+    id: 31
+    name: SystemState
+    scalefunction: x / 1
+    unit: null
+- length: 43
+  mdbunit: 245
+  name: cc.bat
+  startaddress: 259
+  values:
+  - datasetid: null
+    description: State of charge
+    id: 266
+    name: Soc
+    scalefunction: x / 10
+    unit: '%'
+  - datasetid: null
+    description: Battery temperature
+    id: 262
+    name: BatteryTemperature
+    scalefunction: x / 10
+    unit: Degrees celsius
+  - datasetid: null
+    description: BMV Relay status
+    id: 280
+    name: BMV_Relay_Status
+    scalefunction: x/1
+    unit: null
+  - datasetid: null
+    description: Charge cycles
+    id: 284
+    name: History_ChargeCycles
+    scalefunction: x / 1
+    unit: count
+- length: 18
+  mdbunit: 247
+  name: cc.pv
+  startaddress: 771
+  values:
+  - datasetid: null
+    description: PV voltage
+    id: 776
+    name: Pv_V
+    scalefunction: x / 100
+    unit: V DC
+  - datasetid: null
+    description: PV current
+    id: 777
+    name: Pv_I
+    scalefunction: x / 10
+    unit: A DC
+  - datasetid: null
+    description: Yield today
+    id: 784
+    name: Yield_Today
+    scalefunction: x / 0.01
+    unit: kWh
+  - datasetid: null
+    description: Maximum charge power today
+    id: 785
+    name: MaxChargePower_Today
+    scalefunction: x / 1
+    unit: W
+  - datasetid: null
+    description: Yield yesterday
+    id: 786
+    name: Yield_Yesterday
+    scalefunction: x / 0.01
+    unit: kWh
+  - datasetid: null
+    description: Maximum charge power yesterday
+    id: 787
+    name: MaxChargePower_Yesterday
+    scalefunction: x / 1
+    unit: W

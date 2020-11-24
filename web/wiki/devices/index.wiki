@@ -1,0 +1,12 @@
+Devices of the SAMPLER
+===========
+
+The measurement devices of the WATER.sampler. The devices are used in the quite complex wiki:measurement system. 
+While certain devices (YSI600R, ProPS, Picarro-CoWS) can be switched off and are then ignored, 
+the Mitsubishi α PCLs are crucial for the measurement.
+
+The SDI12-Arduino and the Adcon A850 system are not part of the sampler but of the WATER.logger.
+
+## The devices
+
+				

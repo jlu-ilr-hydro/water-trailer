@@ -7,7 +7,7 @@ Created on 17.03.2016
 import asyncio
 import datetime
 import time
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from .base import Device, DeviceError
 
@@ -27,8 +27,7 @@ class FakeDevice(Device):
         self.lock = asyncio.Lock()
 
     async def readstatus(self):
-        import random
-        with await self.lock:
+        async with self.lock:
             await asyncio.sleep(0.1)
             self.data['time'] = datetime.datetime.utcnow()
             self.data['progress'] = self.progress()
@@ -36,8 +35,8 @@ class FakeDevice(Device):
             self.data.chapter = AttrDict()
             self.data.chapter.bla = 1
             self.data.chapter.test = 2
-            self.data.chapter.bli = AttrDict()
-            self.data.chapter.bli.nochmal = 1
+            #self.data.chapter['bli'] = AttrDict()
+            #self.data.chapter.bli['nochmal'] = 1
             self.data.chapter.blub = "1"
             self.data.detailsetup = AttrDict()
             self.data.detailsetup.bla = 42
@@ -76,7 +75,7 @@ class FakeDevice(Device):
         return
 
     async def doaction(self, duration=10.0):
-        with await self.lock:
+        async with self.lock:
             self.is_ready.clear()
             await asyncio.sleep(0.3)
             self.frequency = duration or 10.0

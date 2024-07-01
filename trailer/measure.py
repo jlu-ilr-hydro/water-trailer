@@ -9,7 +9,7 @@ import datetime
 import traceback
 import itertools
 
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from trailer.devices.cwsclient import _CWSMeasurement
 from . import TrailerInfo, TrailerLog, get_config

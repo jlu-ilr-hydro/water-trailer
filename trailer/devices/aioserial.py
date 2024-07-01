@@ -312,8 +312,8 @@ class SerialTransport(asyncio.Transport):
         raise NotImplementedError
 
 
-@asyncio.coroutine
-def create_connection(protocol_factory, loop=None, **serial_kwargs):
+
+async def create_connection(protocol_factory, loop=None, **serial_kwargs):
     """
     Create a serial streaming transport connection to a serial port.
     """
@@ -327,8 +327,7 @@ def create_connection(protocol_factory, loop=None, **serial_kwargs):
     return SerialTransport(loop, serial_factory, protocol), protocol
 
 
-@asyncio.coroutine
-def open_serial_connection(threaded=False, limit=1024, loop=None, **serial_kwargs):
+async def open_serial_connection(threaded=False, limit=1024, loop=None, **serial_kwargs):
     """
     Get a stream reader and a stream writer for a serial connection.
     """
@@ -337,10 +336,10 @@ def open_serial_connection(threaded=False, limit=1024, loop=None, **serial_kwarg
     reader = asyncio.StreamReader(limit=limit, loop=loop)
     protocol = asyncio.StreamReaderProtocol(reader, loop=loop)
     if threaded:
-        transport, _ = yield from create_connection(lambda: protocol, loop=loop, **serial_kwargs)
+        transport, _ = await create_connection(lambda: protocol, loop=loop, **serial_kwargs)
     else:
         import serial.aio as aio
-        transport, _ = yield from aio.create_serial_connection(loop, lambda: protocol, **serial_kwargs) 
+        transport, _ = await aio.create_serial_connection(loop, lambda: protocol, **serial_kwargs)
     writer = asyncio.StreamWriter(transport, protocol, reader, loop)
     return reader, writer
 

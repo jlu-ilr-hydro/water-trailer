@@ -4,7 +4,8 @@ from .exceptions import TrailerError, TrailerWarning, TrailerInfo, TrailerLog
 from pathlib import Path
 import yaml
 import time
-from orderedattrdict import AttrDict, yamlutils
+from .yamlutils import AttrDict, AttrDictYAMLLoader
+
 
 
 def as_stream(stream_or_path, mode='r'):
@@ -32,12 +33,12 @@ def stream_scope(stream_or_path, mode='r'):
 
 def from_yaml(stream_or_path):
     """
-    Loads yaml from a stream, path or filename as an orderedattrdict
+    Loads yaml from a stream, path or filename as an attrdict
     :param stream_or_path: A stream, Path or filename(str)
-    :return: orderedattrdict.AttrDict
+    :return: attrdict.AttrDict
     """
     with stream_scope(stream_or_path) as stream:
-        return yaml.load(stream, Loader=yamlutils.AttrDictYAMLLoader)
+        return yaml.load(stream, AttrDictYAMLLoader)
 
 def to_yaml(data, stream_or_path=None):
     """

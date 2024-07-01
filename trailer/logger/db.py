@@ -1,4 +1,4 @@
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from ..db.engine import Base, sql, orm, session_scope
 from ..db.engine import stringcol, intcol

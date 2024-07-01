@@ -3,7 +3,7 @@ Wrapper to the WAGO PLC based valve system
 
 error
 """
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 import asyncio
 import traceback
 from umodbus.client import tcp as mdb
@@ -259,7 +259,7 @@ class WagoValvesystem(Device):
         tstart = time()
         req_adu = self._status_query.read(slave_id=self.slave_id)
         # Send status request to PLC and get response
-        with await self.lock:
+        async with self.lock:
 
             status = await self.send(req_adu)
             # Save response list as self.data
@@ -320,7 +320,7 @@ class WagoValvesystem(Device):
         :return: True
         """
         await self.readstatus()
-        with await self.lock:
+        async with self.lock:
             valve = valve or self.valve
             tgtweight = tgtweight if tgtweight is not None else self.tgtweight
             timeout = timeout or self.timeout
@@ -361,7 +361,7 @@ class WagoValvesystem(Device):
         :return:
         """
         await self.readstatus()
-        with await self.lock:
+        async with self.lock:
             new_timeout = self.timeout + seconds
             req_adu = mdb.write_multiple_registers(self.slave_id, starting_address=COMMAND_ADDRESS + 4,
                                                    values=_T.TIME.pack(new_timeout))
@@ -371,7 +371,7 @@ class WagoValvesystem(Device):
         """
         Clears the command flag
         """
-        with await self.lock:
+        async with self.lock:
             req_adu = mdb.write_single_register(self.slave_id, COMMAND_ADDRESS, 0)
             self.is_ready.clear()
             response = await self.send(req_adu)
@@ -382,7 +382,7 @@ class WagoValvesystem(Device):
         Submits a reset signal to the PLC and clears all inputs
         :return:
         """
-        with await self.lock:
+        async with self.lock:
             req_adu = mdb.write_single_register(self.slave_id, COMMAND_ADDRESS, 1)
             await self.send(req_adu)
             await asyncio.sleep(0.01)
@@ -394,7 +394,7 @@ class WagoValvesystem(Device):
         :param max_valves:
         :return:
         """
-        with await self.lock:
+        async with self.lock:
             req_adu = mdb.write_single_register(slave_id=self.slave_id, address=0x3000 + 16, value=max_valves)
             await self.send(req_adu)
         return True
@@ -406,7 +406,7 @@ class WagoValvesystem(Device):
 
         """
         
-        with await self.lock:
+        async with self.lock:
             req_adu = mdb.write_single_register(slave_id=self.slave_id, address=0x3000 + 17, value=smoothfactor)
             await self.send(req_adu)
 
@@ -423,7 +423,7 @@ class WagoValvesystem(Device):
         req_adu = mdb.write_multiple_registers(slave_id=self.slave_id, 
                                                starting_address=0x3000 + 18, 
                                                values=values)
-        with await self.lock:
+        async with self.lock:
             return await self.send(req_adu)
 
     async def start_ysi(self):

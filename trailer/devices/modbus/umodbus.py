@@ -48,7 +48,7 @@ class uMaster(object):
         """
         count = int(length) // 2 + int(length) % 2
         msg = utcp.read_holding_registers(unit, address - 1, count)
-        with await self.lock:
+        async with self.lock:
             resp = await self.send_message(msg) 
         return struct.pack('<' + 'H' * count, *resp)
 
@@ -94,7 +94,7 @@ class uMaster(object):
 
     async def readtime(self, address, unit=1):
         msg = utcp.read_holding_registers(unit, address, 6)
-        with await self.lock:
+        async with self.lock:
             resp = await self.send_message(msg)
         try:
             return datetime(*resp)
@@ -104,7 +104,7 @@ class uMaster(object):
 
     async def readshort(self, address, unit=1):
         msg = utcp.read_holding_registers(unit, address, 1)
-        with await self.lock:
+        async with self.lock:
             resp = await self.send_message(msg)
         return resp
 
@@ -130,7 +130,7 @@ class uMaster(object):
         count = len(bstr) // 2 + len(bstr) % 2
         values = struct.unpack('<' + 'H' * count, bstr)
         msg = utcp.write_multiple_registers(unit, address, values)
-        with await self.lock:
+        async with self.lock:
             return await self.send_message(msg)
 
     async def writecoil(self, address, value=True, unit=1):
@@ -142,6 +142,6 @@ class uMaster(object):
         else:
             value = 0x0000
         msg = utcp.write_single_coil(unit, address, value)
-        with await self.lock:
+        async with self.lock:
             return await self.send_message(msg)
 

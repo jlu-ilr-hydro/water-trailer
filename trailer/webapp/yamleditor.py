@@ -2,7 +2,7 @@ import cherrypy
 import datetime
 import time
 import os, re, yaml
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from . import mimetype, mime
 from .. import db, home

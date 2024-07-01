@@ -5,7 +5,7 @@ Created on 02.07.2015
 '''
 
 import cherrypy
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from . import mimetype, mime
 from . import wiki
 from .. import db, home

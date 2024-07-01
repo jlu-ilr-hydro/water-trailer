@@ -37,7 +37,7 @@ class Picarro(Device):
             command += chr(13)
         response = None
         await asyncio.sleep(0.01)
-        with await self.lock:
+        async with self.lock:
             reader, writer = await asyncio.open_connection(host=self.host, port=self.port)
             try:
                 writer.write(command.encode())

@@ -129,39 +129,35 @@ class UrlizePattern(markdown.inlinepatterns.Pattern):
 
 
 class TrailerExtension(markdown.Extension):
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         """ Replace autolink with UrlizePattern """
-        md.inlinePatterns['link log'] = PatternLink(md, '(log:)([0-9]+)', r'/log/\3', u'\u25B8' + r'\2\3')
-        md.inlinePatterns['link wiki'] = PatternLink(md, '(wiki:)([\w/.-]+)', r'/wiki/\3', u'[\\3]')
-        md.inlinePatterns['link svn'] = PatternLink(md, '(svn:)([\w/]+)', r'/snvlog/\3', u'[\\3]')
-        md.inlinePatterns['replace rarrow'] = SymbolPattern(md, r'(-->)', '\u2192')
-        md.inlinePatterns['replace larrow'] = SymbolPattern(md, r'(<--)', '\u2190')
-        md.inlinePatterns['replace rarrow big'] = SymbolPattern(md, r'(==>)', '\u21D2')
-        md.inlinePatterns['replace larrow big'] = SymbolPattern(md, r'(<==)', '\u21D0')
-        md.inlinePatterns['home button'] = PatternLink(md, r'(/HOME)', '/', '\u2302', 'button')
+        md.inlinePatterns.register(PatternLink(md, '(log:)([0-9]+)', r'/log/\3', u'\u25B8' + r'\2\3'), 'link log', 100) 
+        md.inlinePatterns.register(PatternLink(md, '(wiki:)([\w/.-]+)', r'/wiki/\3', u'[\\3]'), 'link wiki', 100) 
+        md.inlinePatterns.register(PatternLink(md, '(svn:)([\w/]+)', r'/snvlog/\3', u'[\\3]'), 'link svn', 100) 
+        md.inlinePatterns.register(SymbolPattern(md, r'(-->)', '\u2192'), 'replace rarrow', 100) 
+        md.inlinePatterns.register(SymbolPattern(md, r'(<--)', '\u2190'), 'replace larrow', 100) 
+        md.inlinePatterns.register(SymbolPattern(md, r'(==>)', '\u21D2'), 'replace rarrow big', 100) 
+        md.inlinePatterns.register(SymbolPattern(md, r'(<==)', '\u21D0'), 'replace larrow big', 100) 
+        md.inlinePatterns.register(PatternLink(md, r'(/HOME)', '/', '\u2302', 'button'), 'home button', 100) 
 
-        md.inlinePatterns['strikethrough'] = TagPattern(
-            md, r'(done:)(.+)', 'span', '\u2714\\3', _class="active")
-        md.inlinePatterns['warning'] = TagPattern(
-            md, r'(!!)(.+)', 'span', '\\3', _class='warning')
-        md.inlinePatterns['image'] = TagPattern(
-            md, r'(image:)([\w/.]+)', 'img', '', src=r'/img/\3')
-        md.inlinePatterns['question'] = TagPattern(
-            md, r'(\?\?)(.+)', 'span', '\u2753\\3', _class='question')
+        md.inlinePatterns.register(TagPattern(md, r'(done:)(.+)', 'span', '\u2714\\3', _class="active"), 'strikethrough', 100) 
+        md.inlinePatterns.register(TagPattern(md, r'(!!)(.+)', 'span', '\\3', _class='warning'), 'warning', 100) 
+        md.inlinePatterns.register(TagPattern(md, r'(image:)([\w/.]+)', 'img', '', src=r'/img/\3'), 'image', 100) 
+        md.inlinePatterns.register(TagPattern(md, r'(\?\?)(.+)', 'span', '\u2753\\3', _class='question'), 'question', 100) 
 
 
 class UrlizeExtension(markdown.Extension):
     """ Urlize Extension for Python-Markdown. """
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         """ Replace autolink with UrlizePattern """
-        md.inlinePatterns['autolink'] = UrlizePattern(URLIZE_RE, md)
+        md.inlinePatterns.register(UrlizePattern(URLIZE_RE, md), 'autolink', 100) 
 
 
 class MarkDown:
     def __init__(self):
-        te = TrailerExtension(configs={})
-        al = UrlizeExtension(configs={})
+        te = TrailerExtension()
+        al = UrlizeExtension()
         self.md = markdown.Markdown(extensions=['admonition', te, al])
 
     def __call__(self, s):

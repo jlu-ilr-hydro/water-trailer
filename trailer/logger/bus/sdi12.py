@@ -7,7 +7,7 @@ from . import base
 from trailer.devices import aioserial
 import asyncio
 import datetime
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 
 import warnings
@@ -188,7 +188,7 @@ class Bus(base.Bus):
 
     async def open(self):
         """
-        Opens the serial port and drains the port
+        Opens the serial port and drains the port4
         :return:
         """
         await self.serial.open()
@@ -203,7 +203,7 @@ class Bus(base.Bus):
         :param cmd:
         :return:
         """
-        with await self.lock:
+        async with self.lock:
             if self.debug:
                 print('Writing ', cmd.strip(), ' to ', self.port)
             await self.serial.write(encode(cmd + '\n'))

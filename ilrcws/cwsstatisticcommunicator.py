@@ -11,7 +11,6 @@ import time
 import numpy as np
 from collections import  deque
 from scipy.stats import pearsonr
-import SocketServer as socketserver
 
 def time2str(t):
     return time.strftime('%Y-%m-%d %H:%M:%S',time.gmtime(t))

@@ -3,7 +3,7 @@ import os
 import asyncio
 import time
 import traceback
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from datetime import datetime
 from ..devices.jsonclient import JsonServer
 from .bus.base import Bus, Value

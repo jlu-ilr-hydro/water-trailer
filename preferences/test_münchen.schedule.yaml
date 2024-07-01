@@ -1,12 +1,12 @@
+time_per_source: 900
+currentsource: null
+urgentsources: []
+starttime: 2024-07-01 13:29:41.974525
 schedule:
 - 6
 - 8
 - 4
 - 6
+pointer: 1
 events: []
 name: "test_m\xFCnchen"
-currentsource: 4
-urgentsources: []
-time_per_source: 900
-starttime: 2017-11-22 13:50:06.555871
-pointer: 1

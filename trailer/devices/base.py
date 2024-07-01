@@ -7,7 +7,7 @@ Created on 17.03.2016
 import asyncio
 import time
 import traceback
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from trailer import TrailerError, TrailerInfo, TrailerWarning, TrailerLog, get_config, db
 
 debug = False

@@ -1,4 +1,4 @@
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 import asyncio
 
 from trailer.devices import aioserial

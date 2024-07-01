@@ -81,7 +81,7 @@ class Motor(Device):
         if self.data.get('poserror'):
             raise PositionError("m{} has a position error".format(self.address), self.robot)
         
-        with await self.lock:
+        async with self.lock:
             self.data['startpos'] = self.data['pos'] 
             self.data['endpos'] = pos
             steps = pos / self.length * self.maxstep
@@ -94,7 +94,7 @@ class Motor(Device):
         if self.data['poserror']:
             raise PositionError("m{} has a position error".format(self.address), self.robot)
 
-        with await self.lock:
+        async with self.lock:
             self.data['startpos'] = self.data['pos'] 
             self.data['endpos'] = self.data['pos'] + pos
             steps = pos / self.length * self.maxstep
@@ -103,7 +103,7 @@ class Motor(Device):
             self.is_ready.clear()
 
     async def reference(self):
-        with await self.lock:
+        async with self.lock:
             cmds = self.initseq + ['>1', 'p4', 'A']
             self.is_ready.clear()
             await self.do(*cmds)
@@ -125,7 +125,7 @@ class Motor(Device):
         await self.do('D')
 
     async def readstatus(self):
-        with await self.lock:
+        async with self.lock:
             self.readtime = time.time()
             status = await self.do('$')
             if not status or not status[0]:
@@ -223,7 +223,7 @@ class Robot(Device):
     async def do_cmd(self, command):
         """Writes a single command to the controller. The command needs to include the motor number
         """
-        with await self.lock:
+        async with self.lock:
             self.serial.write_fast((command.strip()+'\r').encode())
             if debug > 1:
                 print('#{}\r'.format(command), end='->')

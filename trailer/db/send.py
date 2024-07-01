@@ -1,4 +1,4 @@
-from orderedattrdict import AttrDict, yamlutils
+from attrdictionary import AttrDict
 import yaml
 import gzip
 import io

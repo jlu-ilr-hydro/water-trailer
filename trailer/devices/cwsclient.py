@@ -12,7 +12,7 @@ from .base import ProgressEvent
 from . import DeviceError
 import asyncio
 import time
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 debug = False
 

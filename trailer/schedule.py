@@ -3,7 +3,7 @@ Created on 18.06.2015
 
 @author: kraft-p
 """
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from datetime import datetime, timedelta
 import time
 from itertools import cycle

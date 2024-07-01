@@ -1,0 +1,9 @@
+pandas
+scipy
+pyyaml
+sqlalchemy
+pyserial
+attrdictionary
+cherrypy
+requests
+markdown

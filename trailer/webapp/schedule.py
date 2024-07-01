@@ -6,7 +6,7 @@ Created on 22.01.2016
 
 from datetime import datetime
 import cherrypy
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from . import mimetype, mime, postonly
 from .. import db, home

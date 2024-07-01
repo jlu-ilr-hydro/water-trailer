@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <link rel="stylesheet" href="/html/trailer.css">
     <link rel="stylesheet" href="/libs/CodeMirror/codemirror.css">
+    <link rel="stylesheet" href="/libs/CodeMirror/theme/monokai.css">
     <script src="/libs/jquery.min.js"></script>
     <script src="/libs/CodeMirror/codemirror.js"></script>
     <script src="/libs/CodeMirror/mode/yaml/yaml.js" type="text/javascript"></script>
@@ -37,7 +38,8 @@
 
         var editor = CodeMirror.fromTextArea(document.getElementById("area42"), {
             lineNumbers: true,
-            lineWrapping: true
+            lineWrapping: true,
+            theme: monokai
         });
 
         $.getJSON('/yamleditor/availableyamlfiles', function (data) {

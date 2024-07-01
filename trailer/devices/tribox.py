@@ -11,7 +11,7 @@ TODO: Fit to modbusClient, rethink of ordering (devices etc.)
 from math import isfinite
 import time
 import asyncio
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 import traceback
 from datetime import timedelta
 
@@ -168,14 +168,14 @@ class TriboxDevice(Device):
     
     async def measure(self):
         """
-        Performs a ProPS measurement and returns an orderedattrdict with the data items
+        Performs a ProPS measurement and returns an attrdict with the data items
         :return:
         """
         self.is_ready.clear()
         if debug:
             print('tribox: start measure')
         if self.active:
-            with await self.lock:
+            async with self.lock:
                 # Get the last time of an LSA measurement
                 old_lsa_time = await self.lsa.get_measure_time()
                 if debug:
@@ -216,7 +216,7 @@ class TriboxDevice(Device):
         """
         if self.lock.locked():
             return self
-        with await self.lock:
+        async with self.lock:
             self.data['triboxtime'] = await self.tribox.get_time()
             t = self.data['lsatime'] = await self.lsa.get_measure_time()
         self.readtime = time.time()
@@ -224,7 +224,7 @@ class TriboxDevice(Device):
         # clean errors
         self.errors = []
         # Read tribox data
-        with await self.lock:
+        async with self.lock:
             pp_values = await self.props.values()
             lsa_values = await self.lsa.values()
         signal_200nm = pp_values[3][1]

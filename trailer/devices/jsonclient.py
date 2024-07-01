@@ -9,7 +9,7 @@ import json
 import time
 import inspect
 import traceback
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from . import Device, DeviceError
 
 
@@ -227,7 +227,7 @@ class JsonClient(Device):
         return 'json://{}:{}'.format(self.name or self.host, self.port)
         
     async def send(self, cmd, **data):
-        with await self.lock:
+        async with self.lock:
             try:
                 reader, writer = await asyncio.open_connection(self.host, self.port)
             except ConnectionRefusedError:

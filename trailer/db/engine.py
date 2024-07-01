@@ -11,8 +11,9 @@ from contextlib import contextmanager
 from trailer import home
 def make_engine(filename='data.sqlite'):
     engine = sql.create_engine('sqlite:///{}/{}'.format(home.as_posix(), filename), echo=False)
-    engine.execute('PRAGMA journal_mode=WAL;').close()
-    engine.execute('PRAGMA synchronous=1;').close()
+    with engine.connect() as connection:
+        connection.execute(sql.text('PRAGMA journal_mode=WAL;'))
+        connection.execute(sql.text('PRAGMA synchronous=1;'))
     return engine
 
 engine = make_engine()

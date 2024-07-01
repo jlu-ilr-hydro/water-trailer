@@ -36,7 +36,7 @@ class httpServer(threading.Thread):
         self.root = root
         config = config or {}
         cherrypy.server.socket_host = "0.0.0.0"
-        cherrypy.server.socket_port = port or 10080
+        cherrypy.server.socket_port = port or 20080
         cherrypy.config.update({
             "engine.autoreload.on": False,
             "tools.encode.encoding": "utf-8",

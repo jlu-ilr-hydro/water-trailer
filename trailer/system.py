@@ -8,7 +8,7 @@ import time
 import traceback
 import datetime
 
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from .schedule import Schedule
 from .devices import Devices, DeviceError

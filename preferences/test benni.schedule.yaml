@@ -1,10 +1,10 @@
-events: []
 time_per_source: 600
-pointer: -1
 currentsource: null
 urgentsources: []
+starttime: 2024-07-01 13:29:41.974525
 schedule:
 - 16
 - 14
-starttime: 2017-11-22 13:17:49.364771
+pointer: -1
+events: []
 name: test benni

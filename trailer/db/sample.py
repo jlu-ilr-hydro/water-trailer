@@ -3,7 +3,7 @@ Created on 16.06.2015
 
 @author: kraft-p
 '''
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 
 from .engine import Base
 from .engine import primarykey, stringcol, floatcol, session_scope, intcol

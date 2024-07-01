@@ -17,7 +17,7 @@ from . import DeviceWarning, DeviceError
 import time
 import traceback
 import math
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from serial import Serial
 debug = False
 

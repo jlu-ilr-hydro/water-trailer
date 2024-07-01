@@ -6,7 +6,7 @@ measurement
 from itertools import product
 
 import pylab as plt
-from orderedattrdict import AttrDict
+from attrdictionary import AttrDict
 from trailer import db
 
 def get_values():

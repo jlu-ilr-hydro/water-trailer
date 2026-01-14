@@ -80,9 +80,8 @@ devices:
       # List the bus files in preferences/*.bus.yaml to use without
       # the .bus.yaml suffix
       - colorcontrol-short
-      # - maja
+      - maja
       - sdi12
-      # - addupi-2017-07-04
 
     send_back: # Device values to send from the sampler to the logger (with valuetype)
       sampler.rainfill1: valvesystem.rainfill1
@@ -113,12 +112,6 @@ devices:
     LSAunit: 20
     active: true
     refreshrate: 10
-#  samplerobot:
-#    module: trailer.devices.robotaio
-#    port: /dev/trailerRobot
-#    bottlesize: 50
-#    flushvol: 100
-#    debug: 1
 
 # mirror_db:
 #   url: http://10.8.0.1:10081/update/receive

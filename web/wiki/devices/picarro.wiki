@@ -1,13 +1,6 @@
 Picarro CRDS
 ==========
 
-Remote login
-------------
-Don't do it, the coordinator will stop
-
- - Username: `picarro`
- - PW: `Extreme_Science!`
-
 Start up (up to 1h)
 ----------
 

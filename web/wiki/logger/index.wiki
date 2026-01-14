@@ -2,6 +2,4 @@ Content in logger
 ==================
 
 The logger controls the devices that do measurements independent of a water sample.
-Examples are the weather station wiki:devices/vaisala, the energy system wiki:logger/colorcontrol and 
-the MAJA GSM-modem wiki:logger/maja, that tracks the GPS, the fuel level and alarms.
-
+Example is the MAJA GSM-modem wiki:logger/maja, that tracks the GPS, the fuel level and alarms.

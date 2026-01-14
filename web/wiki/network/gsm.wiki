@@ -1,4 +1,0 @@
-gsm
-==========
-
-The gsm connection is done by the M.A.J.A. modem. The T-Mobile SIM-Card has the following PIN:9716

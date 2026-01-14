@@ -1,6 +1,0 @@
-Adcon
-==========
- - !!Station 60751 (at gw#134) not sending data
- - Install sensors in depth fro all stations
- - Add GW level sensor to #134(60751) and #195(60752)
- 

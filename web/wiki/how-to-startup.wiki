@@ -33,7 +33,6 @@ There is a helper to run those servers in a screen, called run.
 
  1. go to the trailer directory `cd trailer`
  2. Start all 3 servers (wiki, logger, sampler) with `run_all`
- 6. Open an internet browser in the trailer at the address http://10.42.0.1:10080
 
 If you see strange error messages from python in the logbook, switch to the sampler terminal to 
 investigate:   

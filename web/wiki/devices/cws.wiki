@@ -22,11 +22,3 @@ Isotope Sampling with the CoWS by Picarro
  - Reconnect the standard back with the CoWS
 
 image:cws_standard_fill.jpg image:cws_standard_release_air.jpg
-
-
-
-## IP-address
-10.42.0.249
-		
-## Logbook
- - 2017-04-10: Changed drierite column	

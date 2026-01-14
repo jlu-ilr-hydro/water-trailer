@@ -13,13 +13,6 @@ Every week:
  - Clean window with Aceton
  - Put ProPS back in place
 
-## Serial numbers
- - ProPS: PROPS_D0ED
- - Tribox2: Tribox_92EA
- 
-## IP - Address
-10.42.0.151
-
 ## How to replace the ProPS sensor
  - empty the water inside the sensor with "BEmpty" command
  - unplug the connection cable

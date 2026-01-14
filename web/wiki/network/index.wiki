@@ -1,8 +1,0 @@
-The network of the trailer
-==========================
-
-The industrial PC (IPC) is the central IT device in the trailer. For the network it acts as a router between the trailer and the outside. The IPC has 2 ethernet ports, port 1 can be used to connect the trailer to an outside network, eg. the University, port 2 is the internal network. The wiki:logger/maja is among other jobs a GSM modem to get a mobile internet connection. External access is possible over a virtual private network (VPN) to the JLU server fb09-pasig.umwelt.uni-giessen.de.
-
-
-
-

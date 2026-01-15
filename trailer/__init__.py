@@ -4,7 +4,7 @@ from .exceptions import TrailerError, TrailerWarning, TrailerInfo, TrailerLog
 from pathlib import Path
 import yaml
 import time
-from .yamlutils import AttrDict, AttrDictYAMLLoader
+from orderedattrdict.yamlutils import AttrDict, AttrDictYAMLLoader
 
 
 
@@ -78,6 +78,7 @@ def get_config(filename: str = None, dir: Path = home / 'preferences') -> AttrDi
             filename = 'sampler.config.yaml'
         else:
             filename = 'fakesampler.config.yaml'
+
     fn = dir / filename
     data = from_yaml(fn)
     return data

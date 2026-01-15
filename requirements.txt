@@ -3,7 +3,10 @@ scipy
 pyyaml
 sqlalchemy
 pyserial
+pyserial-asyncio
 attrdictionary
 cherrypy
 requests
 markdown
+orderedattrdict
+

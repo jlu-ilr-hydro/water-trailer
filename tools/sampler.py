@@ -17,9 +17,9 @@ from trailer.setup import setup
 
 if __name__ == '__main__':
 
-
     loop = asyncio.get_event_loop()
     loop.set_debug(True)
+
     # To understand the setup do not look at the code, look at preferences/sampler.config.yaml
     loop.run_until_complete(setup(system.trailer.devices))
     print('finished setup, got {} devices'.format(len(system.trailer.devices)))

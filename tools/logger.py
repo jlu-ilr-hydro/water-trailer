@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import asyncio
 
-
 from trailer import get_config
 from trailer.logger.bus import Bus
 from trailer.logger.schedule import Schedule
@@ -9,9 +8,16 @@ from trailer.logger.jsonserver import ServeLog
 
 
 if __name__ == '__main__':
+
     conf = get_config()
     conf = conf.devices.logger
-    loop = asyncio.get_event_loop()
+
+    # Changes for Python 3.11+
+    #loop = asyncio.get_event_loop()
+    loop = asyncio.new_event_loop()  
+    asyncio.set_event_loop(loop)
+
+
     busses = []
     t = conf.readraster
 

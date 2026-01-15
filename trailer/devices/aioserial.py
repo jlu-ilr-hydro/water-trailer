@@ -338,7 +338,9 @@ async def open_serial_connection(threaded=False, limit=1024, loop=None, **serial
     if threaded:
         transport, _ = await create_connection(lambda: protocol, loop=loop, **serial_kwargs)
     else:
-        import serial.aio as aio
+        # Update for Python 3.14
+        # import serial.aio as aio
+        import serial_asyncio as aio
         transport, _ = await aio.create_serial_connection(loop, lambda: protocol, **serial_kwargs)
     writer = asyncio.StreamWriter(transport, protocol, reader, loop)
     return reader, writer

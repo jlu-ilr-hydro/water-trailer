@@ -178,7 +178,11 @@ class Trailer(object):
         # A dictionary of callbacks providing progress (0..1) for different
         # keywords
         self.progresscallbacks = AttrDict()
-        self.async_loop = asyncio.get_event_loop()
+
+	# Update for Python 3.10+
+        # self.async_loop = asyncio.get_event_loop()
+        self.async_loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(self.async_loop)
 
         # A list of (name,progress value) tuples to indicate progress of different tasks
         self.progress = []

@@ -11,3 +11,4 @@ web/manuals/
 maja-software/
 web/img/video0.jpg
 __pycache__
+node_modules/*

@@ -9,6 +9,7 @@ import cherrypy
 import os
 from cherrypy import expose
 from pathlib import Path
+from xml.etree import ElementTree as etree
 
 from . import mime, mimetype
 from .. import home
@@ -46,7 +47,7 @@ class PatternLink(markdown.inlinepatterns.Pattern):
             text = self.text(m)
         except TypeError:
             text = m.expand(self.text)
-        el = markdown.util.etree.Element("a")
+        el = etree.Element("a")
         el.set('href', href)
         if self.styleclass:
             el.set('class', self.styleclass)
@@ -78,7 +79,7 @@ class TagPattern(markdown.inlinepatterns.Pattern):
         except TypeError:
             text = m.expand(self.text)
 
-        el = markdown.util.etree.Element(self.tag)
+        el = etree.Element(self.tag)
         for k, v in self.attr.items():
             el.set(k.lstrip('_'), m.expand(v))
 
@@ -122,7 +123,7 @@ class UrlizePattern(markdown.inlinepatterns.Pattern):
             else:
                 url = 'http://' + url
 
-        el = markdown.util.etree.Element("a")
+        el = etree.Element("a")
         el.set('href', url)
         el.text = markdown.util.AtomicString(text)
         return el

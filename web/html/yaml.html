@@ -11,14 +11,14 @@
     <meta name="description" content="">
     <meta name="author" content="kraft-p">
 
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/html/trailer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/theme/monokai.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/mode/yaml/yaml.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jwerty/0.3.2/jwerty.js"></script>
+    <link rel="stylesheet" href="/libs/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/libs/codemirror/theme/monokai.css">
+    <script src="/libs/jquery/dist/jquery.js"></script>
+    <script src="/libs/codemirror/lib/codemirror.js"></script>
+    <script src="/libs/codemirror/mode/yaml/yaml.js" type="text/javascript"></script>
+    <script src="/libs/jwerty/jwerty.js"></script>
 
     <style>
         body {
@@ -39,7 +39,7 @@
         var editor = CodeMirror.fromTextArea(document.getElementById("area42"), {
             lineNumbers: true,
             lineWrapping: true,
-            theme: monokai
+            theme: "monokai"
         });
 
         $.getJSON('/yamleditor/availableyamlfiles', function (data) {

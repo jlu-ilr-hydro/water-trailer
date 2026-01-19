@@ -1,15 +1,21 @@
-time_per_source: 1200
-currentsource: 1
-urgentsources: []
-starttime: 2026-01-01 00:00:00
-schedule:
-- 1
-- 2
-- 3
-- 4
-pointer: 1
-events:
-- condition: valvesystem.rainfall1 >30
-  tag: - 1
-  blocktime: 3600.0
-name: example_schedule
+!!python/object/new:attrdictionary.dictionary.AttrDict
+dictitems:
+  currentsource: null
+  events: &id001 []
+  name: example
+  pointer: 1
+  schedule: &id002 []
+  starttime: &id003 2026-01-19 14:20:00.785917
+  time_per_source: 1200
+  urgentsources: &id004 []
+state: !!python/tuple
+- currentsource: null
+  events: *id001
+  name: example
+  pointer: 1
+  schedule: *id002
+  starttime: *id003
+  time_per_source: 1200
+  urgentsources: *id004
+- !!python/name:builtins.tuple ''
+- false

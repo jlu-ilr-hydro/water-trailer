@@ -1,11 +1,13 @@
 selectedsource=null;
 sourcedited = false;
 
-jeditableOptions = { 
-	      tooltip   : "Click to edit...",
-	      style		: "inherit"
+// Not needed with x-editables
+//jeditableOptions = { 
+//	      tooltip   : "Click to edit...",
+//	      style		: "inherit"
 	    	  
-	  };
+//	  };
+
 function posterror(errtext) {
 	$('#scheduleerror').html(errtext);
 	if (!errtext) {
@@ -158,9 +160,10 @@ function updateSchedule(data) {
 	// Set event sources
 	html = '';
 	$.each(data.events,function(index,item){
-		html+='<div class="condition">';
-		html+='<span class="editable condition">'+ item.condition + '</span>';
-		html+=', blocks for <span class="editable blocktime">' + item.blocktime + '</span> seconds  <a class="button RemoveEventCondition" >-</a><ul data="event_schedule" class="sortable">';
+		html+='<div class="condition" >';
+		// Added data-type and data-title to two lines below for x-editable
+		html+='<span class="editable condition" data-type="text" data-title="Edit condition">'+ item.condition + '</span>';
+		html+=', blocks for <span class="editable blocktime" data-type="text" data-title="Edit block time">' + item.blocktime + '</span> seconds  <a class="button RemoveEventCondition" >-</a><ul data="event_schedule" class="sortable">';
 		for(var i=0; i<item.sources.length; i++) {
 			html += create_source_ul(item.sources[i],'li');
 		}
@@ -168,7 +171,13 @@ function updateSchedule(data) {
 	});
 
 	$('#eventlist').html(html);
-	$('#eventlist .editable').editable(editMe,jeditableOptions);
+	// Changed for x-editable
+	// $('#eventlist .editable').editable(editMe,jeditableOptions);
+	$('#eventlist .editable').editable({
+    	mode: 'inline',
+    	success: onEditableSuccess
+	});
+
 	// Set unused sources
 	html = '';
 	$.each(data.sources,function(index,item){
@@ -244,14 +253,22 @@ function addEventCondition(condition) {
 	}
 	if (condition) {
 		var html='<div class="condition">';
-		html+='<span class="editable condition">'+ condition + '</span>';
-		html+=', blocks for <span class="editable blocktime">0.0</span> seconds <a class="button RemoveEventCondition" >-</a>';
+		html+='<span class="editable condition" data-type="text" data-title="Edit condition">'+ condition + '</span>';
+		html+=', blocks for <span class="editable blocktime" data-type="text" data-title="Edit block time">0.0</span> seconds <a class="button RemoveEventCondition" >-</a>';
 		html += '<ul data="event_schedule" class="sortable ui-sortable">';
 		html += '</ul></div>';
 
-		$(html).appendTo('#eventlist');
-		$('#eventlist .editable').editable(editMe,jeditableOptions);
+		// Changed for x-editable
+		// $(html).appendTo('#eventlist');
+		// $('#eventlist .editable').editable(editMe,jeditableOptions);
+
+		const $el = $(html).appendTo('#eventlist');
+		$el.find('.editable').editable({
+    		mode: 'inline',
+    		success: onEditableSuccess
+		});
 		
+
 		$('.sortable:not(#sourceform)').sortable({
 				connectWith: ".sortable:not(#sourceform)",
 				cancel: ".fix",
@@ -347,32 +364,66 @@ function killSchedule() {
 	}
 }
 
-function editMe(newtext,settings) {
-	var key = $(this).prev().html();
-	var val = $(this).text();
-	if ($(this).attr('id') && newtext) {
-		if (!newtext || newtext == 'N/A')
-			selectedsource[$(this).attr('id').substring(2)] = null;
-		else
-			selectedsource[$(this).attr('id').substring(2)] = newtext;		
-	} 
-	if (newtext) {
-		$(this).html(newtext);
-		$('.selected').addClass('edited');			
-	}
-	return newtext;
+// These replace editMe and editHTML for x-editable
+function onEditableSuccess(response, newValue) {
+    const $el = $(this);
+    const id = $el.attr('id');
 
+    if (!id) return;
+
+    if (!newValue || newValue === 'N/A') {
+        selectedsource[id.substring(2)] = null;
+    } else {
+        selectedsource[id.substring(2)] = newValue;
+    }
+
+    $('.selected').addClass('edited');
 }
-function editHtml(newtext,settings) {
-	return newtext;
+
+function onEditHtml(response, newValue) {
+    // DOM already updated by X-Editable
+    // Optional: handle any side effects here
 }
+
+// function editMe(newtext,settings) {
+// 	var key = $(this).prev().html();
+// 	var val = $(this).text();
+// 	if ($(this).attr('id') && newtext) {
+// 		if (!newtext || newtext == 'N/A')
+// 			selectedsource[$(this).attr('id').substring(2)] = null;
+// 		else
+// 			selectedsource[$(this).attr('id').substring(2)] = newtext;		
+// 	} 
+// 	if (newtext) {
+// 		$(this).html(newtext);
+// 		$('.selected').addClass('edited');			
+// 	}
+// 	return newtext;
+
+// }
+// function editHtml(newtext,settings) {
+// 	return newtext;
+// }
+
 $(function() {
 	getSchedule();
 	$('#sourceform').click(function(e) {
 		e.stopPropagation();
 	});
-	$('#scheduleprops .editable').editable(editHtml,jeditableOptions);
-	$('#sourceform .editable').editable(editMe,jeditableOptions);
+	// Changed for x-editable
+	// $('#scheduleprops .editable').editable(editHtml,jeditableOptions);
+	$('#scheduleprops .editable').editable({
+    	mode: 'inline',
+    	success: onEditHtml
+	});
+
+	// Changed for x-editable
+	// $('#sourceform .editable').editable(editMe,jeditableOptions);
+	$('#sourceform .editable').editable({
+    	mode: 'inline',
+    	success: onEditableSuccess
+	});
+
 	$('#sourceform .comment').click(function(e){
 		$('#sourceform .editarea').show().find('textarea').val($(this).html()).focus();
 		$(this).hide();

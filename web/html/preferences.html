@@ -18,9 +18,8 @@
 		<script src="/libs/jquery/dist/jquery.js" type="text/javascript"></script>
 		<script src="/libs/jquery-ui/dist/jquery-ui.min.js" type="text/javascript"></script>
 		<script src="/libs/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
-		<script src="/libs/jquery-json/dist/jquery.json.min.js" type="text/javascript"></script>
 		<script src="/libs/moment/moment.js" type="text/javascript"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jeditable.js/1.7.3/jeditable.min.js" type="text/javascript"></script>
+		<script src="/libs/x-editable/dist/jqueryui-editable/js/jqueryui-editable.min.js" type="text/javascript"></script>
 		<script src="/html/preferences.js" type="text/javascript"></script>
 		<style>
 			.normal {
@@ -154,7 +153,9 @@
 			<div id="scheduleerror" class="error"></div>
 			<div class="normal" id="scheduleprops">
 				<div>
-					Time per source: <span class="editable" id="timepersource">10</span> min.
+					<!--Changed for x-editable-->
+					<!--Time per source: <span class="editable" id="timepersource">10</span> min.-->
+					Time per source: <span class="editable" id="timepersource" data-type="number" data-title="Enter time">10</span>min. 
 				</div>
 				<div>
 					load:
@@ -192,23 +193,33 @@
 		<div id="sourceform" class="normal small fix">
 			<div>
 				<span>Name:</span>
-				<span class="value editable" id="soname"/>
+				<!--Changed for x-editable-->
+				<!--<span class="value editable" id="soname"/>-->
+				<span class="value editable" id="soname" data-type="text" data-title="Name"></span>
 			</div>
 			<div>
 				<span class="key">Valve ID:</span>
-				<span class="value disabled" id="sovalveid"/>
+				<!--Changed for x-editable-->
+				<!--<span class="value disabled" id="sovalveid"/>-->
+				<span class="value disabled" id="sovalveid" data-type="number" data-title="Valve ID"></span>
 			</div>
 			<div>
 				<span class="key">flush time:</span>
-				<span class="value editable" id="soflushtime"/>
+				<!--Changed for x-editable-->				
+				<!--<span class="value editable" id="soflushtime"/>-->
+				<span class="value editable" id="soflushtime" data-type="number" data-title="Flush time"></span>				
 			</div>
 			<div>
 				<span class="key">flush speed:</span>
-				<span class="value editable" id="soflushspeed"/>
+				<!--Changed for x-editable-->						
+				<!--<span class="value editable" id="soflushspeed"/>-->
+				<span class="value editable" id="soflushspeed" data-type="number" data-title="Flush speed"></span>					
 			</div>
 			<div>
 				<span class="key">data set on remote database:</span>
-				<span class="value editable" id="sodataset"/>
+				<!--Changed for x-editable-->					
+				<!--<span class="value editable" id="sodataset"/>-->
+				<span class="value editable" id="sodataset" data-type="text" data-title="Dataset"></span>
 			</div>
 			<div>
 				<span class="key">Comment:</span>

@@ -1,0 +1,24 @@
+Isotope Sampling with the CoWS by Picarro
+====================
+
+ - Constant water stream from reservoir
+ - Standards
+ - Time critical process
+ 
+## Maintanance
+
+ - Check standards - how much is left?
+ - Take standard sample in 2ml vial
+ - clean Reflow Pressure Stop (RPS) if necessary
+ - check drierite column in CoWS, replacement needed?
+ 
+## How to refill standard
+
+ - Close the valve of the standard bag
+ - Disconnect the standard bag from the CoWS (the Festo fitting remains at the bag)
+ - Fig 1: Take out the standard bag, and connect the peristaltic pump. Use a 4mm tube to connect with the water to fill in, not 6mm. The water source should be placed higher up than the pump.
+ - Fig 2: When the bag is full enough, lift the side with the valve and press the air out 
+ - Place the standard back into the rack (closing the valve is a good option) and put something under the left side to lift it.
+ - Reconnect the standard back with the CoWS
+
+image:cws_standard_fill.jpg image:cws_standard_release_air.jpg

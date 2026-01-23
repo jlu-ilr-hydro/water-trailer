@@ -1,0 +1,11 @@
+How to shutdown the trailer
+==========
+
+ 1. Stop sampling on the Web-Controller
+ 2. Stop the logger and the sampler with `stop_all` in a industrial PC terminal (eg. Putty)
+ 3. Stop the CoWS coordinator with running `test/cwspicarro.py stop` in a terminal from the trailer directory. Not sure if you are there? Execute `cd ~/trailer` first
+ 4. Stop the Picarro (only if this is a longer shutdown, eg. movement of the trailer) --> wiki:devices/picarro
+ 5. If the trailer will be moved: 
+     - Make sure the battery has min. 50% left
+     - If not wait until the next loading or initiate a battery load by changing the generator signal (wiki:energy/generator)
+     - At the panda control: Set autostart off

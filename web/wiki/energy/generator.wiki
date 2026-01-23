@@ -1,0 +1,50 @@
+Generator
+==========
+
+Start up procedure
+------------
+1. Check if the generator is operational (fuel, filter, cooling,...)
+2. Make sure that the exhaust fume can't trigger any fires!
+2. Set the Panda into auto start mode:
+    - at the pandas panel, press the power button
+    - 3s later press down
+    - scroll down to autostart
+    - enable/disable autostart with start/stop button
+    - wait a few seconds
+    - turn panda panel off
+
+
+
+
+Changing the battery fill level to start and stop the generator
+------------
+
+At the BMV2 (in the battery cabinet, the lower device with display):
+
+ 1. Hold setup for 2s to enter the setup mode
+ 1. Navigate to entry 64 (Lock Setup) and press select, change the "Lock Setup" to OFF using +/- and confirm by pressing select
+ 1. Return to the main menu by briefly pressing setup
+ 1. Navigate to entry 16 (SOC delay), press select, change the "SOC delay" to the desired percentage with +/- to start the generator and confirm by pressing select
+ 1. Return to the main menu by briefly pressing setup
+ 1. Navigate to entry 17 (Clear SOC delay), press select, change the "Clear SOC delay" to the desired percentage with +/- to stop the generator and confirm by pressing select
+ 1. Return to the main menu by briefly pressing setup
+ 1. Navigate to entry 64 (Lock Setup) and press select, change the "Lock Setup" to ON using +/- and confirm by pressing select.
+ 1. Shortly press setup twice to leave the setup mode
+
+Note: For best Battery live a value of SOC Delay Value of 35% and a Clear SOC delay of 95% is recommended. All successful changes are acknowledged with a short piping noise. 
+
+Changing the battery value to turn everything off using the TBS (Battery protect)
+------
+At the BMV1 (in the battery cabinet, the upper device with display):
+
+ 1. Hold setup for 2s to enter the setup mode
+ 1. Navigate to entry 64 (Lock Setup) and press select, change the "Lock Setup" to OFF using +/- and confirm by pressing select
+ 1. Return to the main menu by briefly pressing setup
+ 1. Navigate to entry 16 (SOC delay), press select, change the "SOC delay" to the desired percentage with +/- to trigger the TBS and confirm by pressing select
+ 1. Return to the main menu by briefly pressing setup
+ 1. Navigate to entry 17 (Clear SOC delay), press select, change the "Clear SOC delay" to the desired percentage with +/- to release the TBS and confirm by pressing select
+ 1. Return to the main menu by briefly pressing setup
+ 1. Navigate to entry 64 (Lock Setup) and press select, change the "Lock Setup" to ON using +/- and confirm by pressing select.
+ 1. Shortly press setup twice to leave the setup mode
+
+Note: For best Battery live a value of SOC Delay Value of 20% and a Clear SOC delay of 25% is recommended. All successful changes are acknowledged with a short piping noise. 

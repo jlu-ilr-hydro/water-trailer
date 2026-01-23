@@ -1,0 +1,35 @@
+/HOME ProPS / tribox
+===================
+wiki:home, wiki:devices, wiki:devices/ysi600r
+
+The ProPS is a UV-Spectrometer controlled by the tribox. The tribox calculates from the spectrometry the
+concentration of NO<sup>3-</sup>, TOC, TSS<sub>eq</sub> and other varaibles with a program called LSA.
+
+## Maintanance
+
+Every week:
+
+ - Remove ProPS from its holding using a hexagon socket key size 4mm
+ - Clean window with Aceton
+ - Put ProPS back in place
+
+## How to replace the ProPS sensor
+ - empty the water inside the sensor with "BEmpty" command
+ - unplug the connection cable
+ - open the nut with wrench (Fig. 1)
+ - open 8 screws on the black box (holder) with allen key
+ - pull out the caps from two sides of the box
+ - open the white cap 
+ - pull out the sensor and replace it with the new one
+ - the inlet hole on the sensor needs to be matched with the hole on the holder (Fig. 2)
+ - close the holder caps
+ - replace the white cap
+ - close the nut
+ - plug in the cable
+ - write down the serial number (Fig. 3)
+ - upload the new sensor to the tribox
+
+image:props_release_screws.jpg  image:props_correct_position.jpg  image:props_serial_no.jpg
+                 
+                        Fig. 1                                                        Fig. 2                                                    Fig. 3
+ 

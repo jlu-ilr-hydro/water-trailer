@@ -1,0 +1,8 @@
+generator-fault
+==========
+
+In case of a generator fault do the following:
+
+1. Solve the generator problem
+2. Start the generator
+3. Press green button at the battery protection switch

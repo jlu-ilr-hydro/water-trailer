@@ -1,0 +1,11 @@
+Trouble shooting
+=================
+
+Server not running
+-------------------
+
+Open a terminal on the trailer with PuTTY and run
+
+    run_all
+
+

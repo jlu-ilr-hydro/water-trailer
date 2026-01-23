@@ -1,0 +1,13 @@
+#!/bin/sh
+export PYTHONPATH=$PYTHONPATH:/home/gh1961/trailer
+cmd=$1
+name=${cmd##*/}
+name=${name%.*}
+running=`screen -ls|grep trailer.${name##*/}`
+if [ -z "$running" ]; then
+    date >${name}.log
+    screen -S "trailer.$name" -dmA script -f -a ${name}.log -c $cmd
+    echo "start trailer.$name"
+else
+    echo "ok: trailer.$name"
+fi

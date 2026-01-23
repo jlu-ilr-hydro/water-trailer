@@ -1,0 +1,18 @@
+how to provide water samples for laboratory isotopic analysis
+==========
+1. Take required sampling materials from laboratory (See Fig. 1):
+     - sampling flash
+     - label
+     - parafilm
+     - syringe
+     - box
+2. fill completely the sampling flash with intended water using syringe.
+3. close the flash cap slighlty.
+4. cover the flash cap with parafilm (See Fig. 2).
+5. label the flash
+6. place the filled flashes inside the box
+7. write the required information on the box (See Fig.3)
+
+image:fig1_lab.jpg  image:fig2_lab.jpg  image:fig3_lab.jpg
+    
+           Fig. 1                  Fig. 2                  Fig. 3

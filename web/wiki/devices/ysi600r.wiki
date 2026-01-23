@@ -1,0 +1,26 @@
+YSI600R
+======
+
+The YSI600R measures water temperature, pH and conductivity. 
+The device reports the measured values to a RS232 connection. 
+The electrical connection is controlled by the wiki:devices/wago, output 1
+indicated by a green LED.
+
+## Maintanance
+
+Clean throughflow cell when necessary 
+
+Port
+----
+/dev/ttyUSB2
+
+Probe configuration
+-------
+ - Automatic realtime measurement start every 1s
+ - Decimal comma off
+ - Protocol:
+    - Column 1: Date (ignored)
+    - Column 2: Time (ignored)
+    - Column 3: Temperature [degC]
+    - Column 4: Conductivity [µS/cm]
+    - Column 5: pH [-]

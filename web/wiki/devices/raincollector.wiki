@@ -1,0 +1,5 @@
+raincollector
+==========
+
+The raincollector is connected to the WAGO 8xAI With green-yellow on + (port 2), brown on - (port 10) and grey is connected with 24V+
+

@@ -1,0 +1,14 @@
+*.log
+.*
+backup
+deprecated
+*.log
+*.bak
+*.sql*
+data.csv
+.idea
+web/manuals/
+maja-software/
+web/img/video0.jpg
+__pycache__
+node_modules/*

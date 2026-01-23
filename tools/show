@@ -1,0 +1,12 @@
+#!/bin/sh
+name=$1
+name=${name%.*}
+running=`screen -ls|grep trailer.$name`
+if [ -z "$name" ]; then
+    screen -ls |grep -o "\.trailer.\S*"|sed 's/.trailer.//'
+elif [ -z "$running" ]; then
+    echo "trailer.$name is not started."
+else
+    screen -rdS "trailer.$name"
+fi
+

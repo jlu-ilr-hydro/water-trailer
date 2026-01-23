@@ -1,0 +1,17 @@
+#!/bin/sh
+CMD="$1"
+case $CMD in
+    start)
+        echo "Start GSM connection. You will need to enter 2 times the trailer password"
+        sudo nmcli --ask con up "T-Mobile(Telekom) Vorgabe 1"
+        sudo service openvpn restart
+        ;;
+    stop)
+        echo "Stop GSM connection. You will need to enter the trailer password"
+        sudo nmcli --ask con down "T-Mobile(Telekom) Vorgabe 1"
+        sudo service openvpn restart
+        ;;
+    *)
+        echo "Usage: gsm [start|stop]"
+        ;;
+esac

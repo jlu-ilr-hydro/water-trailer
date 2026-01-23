@@ -1,0 +1,8 @@
+Devices of the SAMPLER
+===========
+
+The measurement devices of the WATER.sampler. The devices are used in the quite complex wiki:measurement system. 
+While certain devices (YSI600R, ProPS, Picarro-CoWS) can be switched off and are then ignored, 
+the WAGO PCLs are crucial for the measurement.
+
+				

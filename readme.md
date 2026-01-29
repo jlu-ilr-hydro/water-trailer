@@ -2,7 +2,7 @@
 ## Control software<br>
 
 This repository contains the custom control software for the Water Analysis Trailer for Environmental Research (WATER). 
-The WATER is a trailer-based mobile sampling platform capable of automatically sampling and analysing water from up to 
+The WATER is a trailer-based mobile sampling platform capable of automatically sampling and analysing water currently from up to 
 11 different sources. At present, measurements can be made for stable water isotopes, nitrate, pH, electrical conductivity 
 and water temperature. The software manages sample scheduling, acquisition and measurement, communication with measurement devices, 
 storage of results in an integrated SQLite database, and system alarms. It also provides a web interface for remote access 
@@ -33,12 +33,13 @@ localhost:20080<br><br>
 
 ## Publications<br>
 **The base publication for the WATER is...**<br>
-Neill, A.J., Windhorst, D., Kraft, P., Sahraei, A., Breuer, L., (in review). A Water Analysis Trailer for Environmental Research (WATER). Hydrology and Earth Systems Sciences.<br><br>
+* Neill, A.J., Windhorst, D., Kraft, P., Sahraei, A., Breuer, L., (in review). A Water Analysis Trailer for Environmental Research (WATER). Hydrology and Earth Systems Sciences.<br><br>
 
-**Publications using the WATER include...***<br>
-Sahraei, A., Kraft, P., Windhorst, D. and Breuer, L., 2020. High-resolution, in situ monitoring of stable isotopes of water revealed insight into hydrological response behavior. Water, 12(2), 565; https://doi.org/10.3390/w12020565<br>
-Sahraei, A., Chamorro, A., Kraft, P. and Breuer, L., 2021. Application of machine learning models to predict maximum event water fractions in streamflow. Frontiers in Water, 3; https://doi.org/10.3389/frwa.2021.652100<br>
-Sahraei, A., Houska, T. and Breuer, L., 2021. Deep learning for isotope hydrology: The application of long short-term memory to estimate high temporal resolution of the stable isotope concentrations in stream and groundwater. Frontiers in Water, 3; https://doi.org/10.3389/frwa.2021.740044<br><br>
+**Publications using the WATER include...**<br>
+* Sahraei, A., Kraft, P., Windhorst, D. and Breuer, L., 2020. High-resolution, in situ monitoring of stable isotopes of water revealed insight into hydrological response behavior. Water, 12(2), 565; https://doi.org/10.3390/w12020565<br>
+* Sahraei, A., Chamorro, A., Kraft, P. and Breuer, L., 2021. Application of machine learning models to predict maximum event water fractions in streamflow. Frontiers in Water, 3; https://doi.org/10.3389/frwa.2021.652100<br>
+* Sahraei, A., Houska, T. and Breuer, L., 2021. Deep learning for isotope hydrology: The application of long short-term memory to estimate high temporal resolution of the stable isotope concentrations in stream and groundwater. Frontiers in Water, 3; https://doi.org/10.3389/frwa.2021.740044<br><br>
 
 ## Licence<br>
+
 This software is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

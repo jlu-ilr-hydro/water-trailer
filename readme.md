@@ -1,7 +1,7 @@
 # The Water Analysis Trailer for Environmental Research (WATER)<br>
 ## Control software<br>
 
-This repository contains the custom control software for the Water Analysis Trailer for Environmental Research (WATER). 
+This repository contains the self-developed, high-level control software for the Water Analysis Trailer for Environmental Research (WATER). 
 The WATER is a trailer-based mobile sampling platform capable of automatically sampling and analysing water currently from up to 
 11 different sources. At present, measurements can be made for stable water isotopes, nitrate, pH, electrical conductivity 
 and water temperature. The software manages sample scheduling, acquisition and measurement, communication with measurement devices, 
@@ -43,3 +43,4 @@ localhost:20080<br><br>
 ## Licence<br>
 
 This software is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

@@ -19,6 +19,7 @@ to the WATER.<br><br>
 ## Installation<br>
 * Clone the git repository.<br>
 * Install the necessary Python packages (see requirements.txt).<br>
+* Add the water-trailer directory to PYTHONPATH<br>
 * For the web interface, install the necessary JavaScript packages. This is achieved by running *npm-install* from the *web* directory.<br><br>
 
 ## Usage<br>

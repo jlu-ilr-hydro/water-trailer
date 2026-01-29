@@ -1,21 +1,19 @@
-!!python/object/new:attrdictionary.dictionary.AttrDict
-dictitems:
-  currentsource: null
-  events: &id001 []
-  name: example
-  pointer: 1
-  schedule: &id002 []
-  starttime: &id003 2026-01-21 10:42:51.621464
-  time_per_source: 1200
-  urgentsources: &id004 []
-state: !!python/tuple
-- currentsource: null
-  events: *id001
-  name: example
-  pointer: 1
-  schedule: *id002
-  starttime: *id003
-  time_per_source: 1200
-  urgentsources: *id004
-- !!python/name:builtins.tuple ''
-- false
+time_per_source: 1200
+currentsource: 1
+urgentsources: []
+starttime: 2026-01-31 12:00:00.0
+schedule:
+- 2
+- 4
+- 6
+- 8
+- 2
+- 7
+- 5
+pointer: 1
+events:
+- condition: valvesystem.rainfall1 >30
+  tag:
+  - 1
+  blocktime: 3600.0
+name: example-schedule

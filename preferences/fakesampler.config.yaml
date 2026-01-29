@@ -27,33 +27,20 @@ devices:
     on_setup_complete: reset
     on_create: start_ysi
 
-#  ysi600r:
-#    module: trailer.devices.fakedevice
-#    # serial port of device
-#    port: /dev/trailerYSI
-#    # Measure time to make averages of result
-#    integrationtime: 20
-#    # Report error if no result was sampled for time in seconds
-#    timeout: 10
+  ysi600r:
+    module: trailer.devices.fakedevice
+    # serial port of device
+    port: /dev/trailerYSI
+    # Measure time to make averages of result
+    integrationtime: 20
+    # Report error if no result was sampled for time in seconds
+    timeout: 10
 
   fakedev:
     module: trailer.devices.fakedevice
     a: 1.0
     b: 2.0
     c: 3.0
-
-  cwspicarro:
-    module: trailer.devices.cwsclient
-    host: 127.0.0.1
-    port: 51211
-
-  #  can run a kind of logger on laptop, or it is a test for failing
-#  logger:
-#    module: trailer.devices.logger
-#    host: localhost
-#    port: 51213
-#    active: 1
-#    refreshrate: 10.0
 
 mirror_db:
     url: http://10.8.0.1:10081/update/receive

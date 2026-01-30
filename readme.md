@@ -1,4 +1,6 @@
 # The Water Analysis Trailer for Environmental Research (WATER)<br>
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18432102.svg)](https://doi.org/10.5281/zenodo.18432102)
+
 ## Control software<br>
 
 This repository contains the self-developed, high-level control software for the Water Analysis Trailer for Environmental Research (WATER). 
@@ -43,4 +45,5 @@ localhost:20080<br><br>
 ## Licence<br>
 
 This software is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
